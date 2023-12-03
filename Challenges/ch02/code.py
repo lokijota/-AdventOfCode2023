@@ -8,13 +8,9 @@ import re
 with open('input.txt') as f:
     lines = f.read().splitlines()
 
-# set limits
-# define list of possible games
-# read all games
-# for each game determine if possible or not
-
 validGames = []
 sumValid = 0
+sumPowers = 0
 
 for line in lines:
     # Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
@@ -46,14 +42,18 @@ for line in lines:
                 if nbBlocks > maxBlue:
                     maxBlue = nbBlocks
 
-    print("Game ", gameNb, maxRed, maxGreen, maxBlue)
+    print("Game ", gameNb, maxRed, maxGreen, maxBlue, "Power = ", maxRed * maxGreen * maxBlue)
 
     # check if game is possible
     if maxRed <= 12 and maxGreen <= 13 and maxBlue <= 14:
         validGames.append(gameNb)
         sumValid += gameNb
 
+    sumPowers += (maxRed * maxGreen * maxBlue)
+
 print(validGames)
-print("Sum=", sumValid)
+print("Part1: Sum=", sumValid)
+print("Part2: Sum Powers=", sumPowers)
 
 # part 1 - 2795
+# part 2 - 75561
