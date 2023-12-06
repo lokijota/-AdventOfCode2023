@@ -1,4 +1,4 @@
-# AdventOfCode2023
+# AdventOfCode2023 www.adventofcode.com
 
 My solutions to Advent of Code 2023. Using Python again this year, but no longer with GitHub copilot. As usual, co-opeting with MgTheSilverSardine.
 
