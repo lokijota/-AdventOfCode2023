@@ -173,8 +173,8 @@ for idx, hand in enumerate(data):
     # index starts with 0
     winnings += hand[1]*(idx+1)
 
-    if "J" in hand[0]:
-        print(hand[0], hand[3])
+    # if "J" in hand[0]:
+    #     print(hand[0], hand[3])
 
 # print(data)
 print(winnings)
