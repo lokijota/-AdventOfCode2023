@@ -3,6 +3,7 @@ from collections import Counter
 import re
 import copy
 from tqdm import tqdm
+import time
 
 
 # e se tentar consumir as coisas como se fosse BNF? i.e., partir dos números em vez de partir da sequência
@@ -12,57 +13,49 @@ from tqdm import tqdm
 
 combinationsCache = {}
 
-def consume(sequence, howMany):
+def consume(sequence, howMany, leaveFree):
     # Can only consume if followed by . or end of the sequence
 
+    lenSeq = len(sequence)
     # skip dots which have no use here
-    while len(sequence) > 0 and sequence[0] == ".":
+    while lenSeq > 0 and sequence[0] == ".":
         sequence = sequence[1:]
+        lenSeq -= 1
 
-    if len(sequence) < howMany:
+    if lenSeq < howMany:
         return None # i.e. it's not possible to consume the howMany strings
 
-    # generate combinations and store in a cache
-    if str(howMany) not in combinationsCache:
-        combinations = [ "#", "?"]
-        for _ in range(0,howMany-1):
-            auxCombinations = []
-            for c in combinations:
-                auxCombinations.append(c + "#")
-                auxCombinations.append(c + "?")
-
-            combinations = auxCombinations
-
-        combinationsCache[str(howMany)] = combinations
-    combinations = combinationsCache[str(howMany)]
-
-
     remainingToConsume = []
-    while len(sequence) >= howMany: # estamos a consumir todos os caracteres da string, o que n faz sentido / isto poderia ser optimizado
 
-        nextChar = "" if len(sequence) == howMany else sequence[howMany]
+    while lenSeq >= howMany and lenSeq >= howMany+leaveFree: 
+
+        nextChar = "" if lenSeq == howMany else sequence[howMany]
         if nextChar != "#": # because if it's a # it means there's a # right after the howMany characters, so this is not a valid config / let's shift right
-            for c in combinations:
-                if sequence.startswith(c): # and nextChar in ["", ".", "?"]: # all but # !
-                    remainingToConsume.append(sequence[howMany+1:].strip()) # only the remaining string (to the right) is returned for further processing by other numbers
-                    # +1 to remove the next character after a match -- has to be a . or ? (note the nextChar if, above)
-                    # print("    Possible match at start with", c, "on sequence", sequence,"remaining sequence is", sequence[howMany+1:])
 
-        if "#" in sequence[0]: # we know we don't need to look more, the start has to start here
+            if "." not in sequence[:howMany]:
+                remainingToConsume.append(sequence[howMany+1:])
+
+        if sequence[0] == "#": # we know we don't need to look more, the start has to start here
             return remainingToConsume if len(remainingToConsume) > 0 else None
 
-        sequence = sequence[1:] # evitar isto e usar um instruction pointer?
+        sequence = sequence[1:] # evitar isto e usar um instruction pointer?dir -- e na verdade posso avançar para a posição a seguir ao último ".", se chegar aqui, e poupar uns ciclos
+        lenSeq -= 1
 
     return remainingToConsume
 
 def countArrangements(sequence, hashGroups):
     leftovers = [sequence]
+    leftoverspacesum = sum(hashGroups)
+    leftoversspacepadding = len(hashGroups)-1
 
     for hg in hashGroups:
         auxLeftovers = []
 
+        leftoverspacesum -= hg
+        leftoversspacepadding -= 1
+
         for p in leftovers:
-            poss = consume(p, hg) # TODO: e se n sobrarem coisas para os elementos que vêm para a frente? n vale a pena olhar para além daí! ie, somar os hash da frente mais os separadores e n deixar a captura ir olhar para esses
+            poss = consume(p, hg, leftoverspacesum+leftoversspacepadding) # TODO: e se n sobrarem coisas para os elementos que vêm para a frente? n vale a pena olhar para além daí! ie, somar os hash da frente mais os separadores e n deixar a captura ir olhar para esses
             if poss is not None:
                 auxLeftovers += poss
 
@@ -93,17 +86,21 @@ for line in lines:
 # process data
 arrangementCount = 0
 
-for cr in tqdm(conditionRecords):
-    arrc = countArrangements(cr[0]+cr[0]+cr[0]+cr[0]+cr[0], cr[1]+cr[1]+cr[1]+cr[1]+cr[1])
-    print(cr[0]+cr[0]+cr[0]+cr[0]+cr[0], cr[1]+cr[1]+cr[1]+cr[1]+cr[1], " -> ", arrc)
+start_time = time.time()
+
+# for cr in tqdm(conditionRecords):
+for cr in conditionRecords:
+    arrc = countArrangements(cr[0]+"?"+cr[0]+"?"+cr[0]+"?"+cr[0]+"?"+cr[0], cr[1]+cr[1]+cr[1]+cr[1]+cr[1])
+    print(cr[0]+"?"+cr[0]+"?"+cr[0]+"?"+cr[0]+"?"+cr[0], cr[1]+cr[1]+cr[1]+cr[1]+cr[1], " -> ", arrc)
     arrangementCount += arrc
+
+print("--- %s seconds ---" % (time.time() - start_time))
 
 print("Number of arrangements:", arrangementCount)
 
+# part 1:
 # 7405 is too high
 # 4899 is too low
 # 5105 is too low
 # 7366 is not the right answer
-
-
 # right - 7169
