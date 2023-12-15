@@ -218,26 +218,23 @@ def floodFill(map, finalPath, innerPositions, startingPos):
         candidatePositions = []
         candidatePositions.append([pos[0]-1, pos[1]])
         candidatePositions.append([pos[0]+1, pos[1]])
-        candidatePositions.append([pos[0], pos[1]-1])
-        candidatePositions.append([pos[0], pos[1]+1])
+        candidatePositions.append([pos[0],   pos[1]-1])
+        candidatePositions.append([pos[0],   pos[1]+1])
 
-        filteredPositions = []
+        positionsToFill = []
         for cp in candidatePositions:
             if cp not in finalPath and cp[0] >= 0 and cp[0] < len(map) and cp[1] >= 0 and cp[1] < len(map[0]) \
-                 and map[cp[0]][cp[1]] != "i" :  # no need to test innerPositions, as this is in sync with the map
-                filteredPositions.append(cp)
+                 and map[cp[0]][cp[1]] != "i" :  # no need to test the innerPositions collections, as this is in sync with the map
+                positionsToFill.append(cp)
 
         # update map and visited positions
-        innerPositions += filteredPositions
-        for fp in filteredPositions:
+        innerPositions += positionsToFill
+        for fp in positionsToFill:
             map[fp[0]] = replaceCharAtStringPosition(map[fp[0]], fp[1], "i")
             # print("- Filled with i", fp)
 
-        positionsToCheck += filteredPositions
+        positionsToCheck += positionsToFill
         positionsToCheck = positionsToCheck[1:] # skip the first
-
-
-    # these filtered positions are the next ones to visit
 
 
 def printMap(map):
@@ -255,7 +252,6 @@ endPart = row[finalPath[0][1]+1:]
 map[finalPath[0][0]] = startPart + s + endPart
 printMap(map)
 
-# 2. Find a | or - on the path, keeping indication of the direction
 
 startPosInPath = None
 
@@ -287,7 +283,9 @@ for pos in finalPath:
 
     currentSymbol = map[pos[0]][pos[1]]
 
-    # if we're just starting
+    # if we're just starting -- these values are a pre-defined configuration. you may have to tweak the S/W E/N assignments below 
+    # as I don't actually know what direction is in and what direction is out.
+    # strangely the results are not symetrical, when rotating these 180 degrees (and they should), meaning there's a glitch somewhere.
     if pos == finalPath[0]:
         if currentSymbol == "|":
             navigationDirection = "S"
