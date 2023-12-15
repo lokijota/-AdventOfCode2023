@@ -2,6 +2,7 @@ import numpy as np
 from collections import Counter
 import re
 import copy
+from tqdm import tqdm
 
 
 # e se tentar consumir as coisas como se fosse BNF? i.e., partir dos números em vez de partir da sequência
@@ -21,9 +22,7 @@ def consume(sequence, howMany):
     if len(sequence) < howMany:
         return None # i.e. it's not possible to consume the howMany strings
 
-    # first (simple) case: there is the howMany number of #'s followed by EOS or a . // can also be followed by a ? in which case i's valid
-
-    # generate combinations
+    # generate combinations and store in a cache
     if str(howMany) not in combinationsCache:
         combinations = [ "#", "?"]
         for _ in range(0,howMany-1):
@@ -52,17 +51,14 @@ def consume(sequence, howMany):
         if "#" in sequence[0]: # we know we don't need to look more, the start has to start here
             return remainingToConsume if len(remainingToConsume) > 0 else None
 
-
-        sequence = sequence[1:]
+        sequence = sequence[1:] # evitar isto e usar um instruction pointer?
 
     return remainingToConsume
 
 def countArrangements(sequence, hashGroups):
     leftovers = [sequence]
 
-    # print("countArrangements", sequence)
     for hg in hashGroups:
-        # print("------------ Consumming #chars", hg)
         auxLeftovers = []
 
         for p in leftovers:
@@ -97,9 +93,9 @@ for line in lines:
 # process data
 arrangementCount = 0
 
-for cr in conditionRecords:
-    arrc = countArrangements(cr[0], cr[1])
-    print(cr[0], cr[1], " -> ", arrc)
+for cr in tqdm(conditionRecords):
+    arrc = countArrangements(cr[0]+cr[0]+cr[0]+cr[0]+cr[0], cr[1]+cr[1]+cr[1]+cr[1]+cr[1])
+    print(cr[0]+cr[0]+cr[0]+cr[0]+cr[0], cr[1]+cr[1]+cr[1]+cr[1]+cr[1], " -> ", arrc)
     arrangementCount += arrc
 
 print("Number of arrangements:", arrangementCount)
