@@ -8,6 +8,17 @@ import time
 
 # functions
 
+# O....#....
+# O.OO#....#
+# .....##...
+# OO.#O....O
+# .O.....O#.
+# O.#..O.#.#
+# ..O..#O..O
+# .......O..
+# #....###..
+# #OO..#....
+
 # main code
 
 # read all the lines
@@ -22,20 +33,49 @@ board = []
 for line in lines:
     board.append(np.array(list(line)))
 
-print(board)
+# print(board)
 
 # global variables
 
 # functions
 
+def moveup(board, col, iprow):
+    while iprow < len(board) and board[iprow][col] in [ "#", "O" ]:
+        iprow += 1
+
+    return iprow
+
 def tilt(board):
 
-    # start with row 0
-    # go up the columns until we find a 0
-    # move if to the first empty position
-    # continue to go up the column
-    # avoid going to row 0 again -- keep a pointer of where to move something to
-    
+    for col in range(0, len(board[0])):
+
+        row = 0
+        iprow = 0
+
+        # find starting position for ip
+        while board[iprow][col] != ".":
+            iprow += 1
+            row = iprow+1
+
+        # now start the movements
+        print("--")
+        while row < len(board):
+            if board[row][col] == "#":
+                iprow = moveup(board, col, row) # note: row
+
+            elif board[row][col] == "O":
+                if row > iprow:
+                    board[iprow][col] = "O"
+                    board[row][col] = "."
+                    iprow += 1
+
+                iprow = moveup(board, col, iprow)
+
+                for r in board:
+                    print(r)
+
+            row += 1
+
     return board
 
 def calculateWeight(board):
@@ -43,5 +83,11 @@ def calculateWeight(board):
 
 # process data
 
+for r in board:
+    print(r)
 board = tilt(board)
-print(calculateWeight(board))
+print("tilted:")
+for r in board:
+    print(r)
+
+print("Result part 1: ", calculateWeight(board))
