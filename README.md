@@ -14,3 +14,4 @@ Useful links:
 - Challenge 7: a chance to use Quicksort. The poker challenge.
 - Challenge 10 part 1: find the length of a path in a map. Djikstra not quite needed.
 - Challenge 10 part 2: find the "area delimited by the path". Navigate along the edges keeping a direction + flood fill.
+- Challenge 12: damaged springs -- a sort of string matching of different alternatives. Found a very fast solution, if not particularly smart, after a lot of silly coding to get there.
