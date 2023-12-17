@@ -22,7 +22,7 @@ import time
 # main code
 
 # read all the lines
-with open('Challenges/ch14/sample.txt') as f:
+with open('Challenges/ch14/input.txt') as f:
     lines = f.read().splitlines()
 
 # parse data file content
@@ -58,7 +58,7 @@ def tilt(board):
             row = iprow+1
 
         # now start the movements
-        print("--")
+        # print("--")
         while row < len(board):
             if board[row][col] == "#":
                 iprow = moveup(board, col, row) # note: row
@@ -71,23 +71,38 @@ def tilt(board):
 
                 iprow = moveup(board, col, iprow)
 
-                for r in board:
-                    print(r)
+                # for r in board:
+                #     print(r)
 
             row += 1
 
     return board
 
 def calculateWeight(board):
-    return 0
+
+    weight = 0
+
+    for c in range(0, len(board[0])):
+        for r in range(0, len(board)):
+
+            if board[r][c] == "O":
+
+                for spanRow in range(r, len(board)):
+                    weight += 1
+
+        # print("after col", c, "weight=", weight)
+
+    return weight
 
 # process data
 
-for r in board:
-    print(r)
+# for r in board:
+#     print(r)
 board = tilt(board)
-print("tilted:")
-for r in board:
-    print(r)
+# print("tilted:")
+# for r in board:
+#     print(r)
 
 print("Result part 1: ", calculateWeight(board))
+
+# part 1 - 109833
