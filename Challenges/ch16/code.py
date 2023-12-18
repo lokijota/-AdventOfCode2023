@@ -103,40 +103,49 @@ def beamMove(map, beamhead):
     print("beamMove() - I SHOULD NOT HAVE GOTTEN HERE, mapElement=", mapElement)
     return []
 
+def processBeams(beamheads):
+    while len(beamheads) > 0:
+
+        beamhead = beamheads.pop()
+        if beamhead[0] >= 0 and beamhead[0] < nrows and beamhead[1] >= 0 and beamhead[1] < ncols:
+                
+                # get bit indicated by positinn binN
+                currentIndicator = activations[beamhead[0]][beamhead[1]] & bitFlag[beamhead[2]]
+                if currentIndicator == 0:
+                    activations[beamhead[0]][beamhead[1]] |= bitFlag[beamhead[2]]
+                
+                    nextbeams = beamMove(map, beamhead)
+                    for nextbeam in nextbeams:
+                        beamheads.append(nextbeam)
+
+    return np.count_nonzero(activations)
+
 # process data
 
+# part 1
 start_time = time.time()
-
-while len(beamheads) > 0:
-
-    beamhead = beamheads.pop()
-    if beamhead[0] >= 0 and beamhead[0] < nrows and beamhead[1] >= 0 and beamhead[1] < ncols:
-            
-            # get bit indicated by positinn binN
-            currentIndicator = activations[beamhead[0]][beamhead[1]] & bitFlag[beamhead[2]]
-            if currentIndicator == 0:
-                activations[beamhead[0]][beamhead[1]] |= bitFlag[beamhead[2]]
-            
-                # print(activations)
-
-                nextbeams = beamMove(map, beamhead)
-
-                # print(str(beamheads))
-                # input("PAK" + str(nextbeams) + ":")
-
-                for nextbeam in nextbeams:
-                    beamheads.append(nextbeam)
-
-# print(activations)
-
-result = np.count_nonzero(activations)
-
-print("Result part 1: ", result) # part 1 - 6906
-
+print("Result part 1: ", processBeams(beamheads)) # part 1 - 6906
 print("--- %s seconds ---" % (time.time() - start_time))
 
 # part 2
 
-result = 0
+start_time = time.time()
 
-print("Result part 2: ", result)
+beamheads = []
+for col in range(0, len(map[0])):
+    beamheads.append([0, col, "S"])
+    beamheads.append([len(map)-1, col, "N"])
+
+for row in range(0, len(map)):
+    beamheads.append([row, 0, "E"])
+    beamheads.append([row, len(map[0])-1, "W"])
+
+result = 0
+for beamhead in tqdm(beamheads):
+    activations = np.zeros( (nrows, ncols), dtype=int)
+    current = processBeams([beamhead])
+    if current > result:
+        result = current 
+
+print("Result part 2: ", result) # 7330
+print("--- %s seconds ---" % (time.time() - start_time))
