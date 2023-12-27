@@ -250,7 +250,7 @@ print("Nb of Nodes:", len(init_graph))
         
 unprocessed = [(0,0,"X", 0)]
 
-vertexCount = 0
+edgeCount = 0
 
 while unprocessed:
     
@@ -293,10 +293,10 @@ while unprocessed:
                 init_graph[current][destination] = int(map[adjPos[0]][adjPos[1]])
                 unprocessed.append(destination)
 
-        vertexCount += 1
+        edgeCount += 1
     
 # print(init_graph)
-print("Graph created, vertices =", vertexCount)
+print("Graph created, edges=", edgeCount)
 
 
 graph = Graph(nodes, init_graph)
