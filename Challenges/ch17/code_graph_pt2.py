@@ -13,7 +13,7 @@ import sys
 # main code
 
 # read all the lines
-with open('Challenges/ch17/input.txt') as f:
+with open('Challenges/ch17/sample.txt') as f:
     lines = f.read().splitlines()
 
 # parse data file content
@@ -42,10 +42,10 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def printPath(map, path):
-
+    "Print out the map with the path followed in colour"
     for r in range(0, nrows):
         for c in range(0, ncols):
-            if [r,c] in [[node[0],node[1]] for node in path]: #path[2:]:
+            if [r,c] in [[node[0],node[1]] for node in path]:
                 print(f"{bcolors.OKGREEN}{map[r][c]}{bcolors.ENDC}", end="")
             else:
                 print(map[r][c], end="")
@@ -72,6 +72,7 @@ class Graph(object):
         
         graph.update(init_graph)
         
+        # JOTA edit -- commented to NOT make the graph reversible / that messes up the logic as each node has r,c plus direction + nb of repetitions as ID
         # for node, edges in graph.items():
         #     for adjacent_node, value in edges.items():
         #         if graph[adjacent_node].get(node, False) == False:
@@ -97,14 +98,10 @@ class Graph(object):
         return self.graph[node1][node2]
     
 
-    # JOTA adition to clean-up nodes that have no connections, from the graph and node base -- makes dijkstra faster
     def cleanup(self):
-        # self.nodes = nodes
-        # self.graph = self.construct_graph(nodes, init_graph)
-
+        "Jota - Auxiliary method to clean-up nodes that have no connections, from the graph and node base -- makes dijkstra faster"
         self.graph = {k: v for k, v in self.graph.items() if len(v) > 0}
         self.nodes = [node for node in self.nodes if node in self.graph.keys()]
-        return 1
 
 
 def direction(sourceNode, targetNode):
@@ -195,6 +192,7 @@ def print_result(previous_nodes, shortest_path, start_node, target_node):
     return shortest_path[target_node]
 
 def generateSurroundingPositions(pos):
+    "Returns a list with the coordinates surrounding the passed possition, in row,column format."
     surroundingPositions = []
 
     # order is relevant. what I put in the end is explored first.
@@ -215,13 +213,12 @@ def generateSurroundingPositions(pos):
 
 # process data
 
-# part 1
+# part 2
 
 result = 0
-
 start_time = time.time()
 
-# 1.0 create graph
+# 1.0 create graph data structure and its connections
 nodes = []
 init_graph = {}
 for node in nodes:
@@ -230,27 +227,27 @@ for node in nodes:
 for r in range(0,nrows):
     for c in range(0,ncols):
 
-        # a. create the nodes
+        # 1.1 create the nodes
 
-        # a.1 start node is special
+        # start node is special
         if r == c == 0:
             nodes.append((0,0,"X", 0))
             init_graph[(0,0,"X", 0)] = {}
             continue
 
-        # a.2 but the other nodes are vulgar nodes
+        # but the other nodes are vulgar nodes, zé-nobodies
         for dir in ["N", "S", "E", "W"]:
-            for stepCount in range(0,4):
+            for stepCount in range(0,10): # note change here from part 1: 4 --> 10
                 currentNodeKey = (r,c, dir, stepCount)
                 nodes.append(currentNodeKey)
                 init_graph[currentNodeKey] = {}
 
 print("Nb of Nodes:", len(init_graph))
-# b. create the connections
+# 1.2 Create the connections (edges)
         
 unprocessed = [(0,0,"X", 0)]
 
-vertexCount = 0
+edgeCount = 0
 
 while unprocessed:
     
@@ -264,7 +261,7 @@ while unprocessed:
         if int(map[adjPos[0]][adjPos[1]]) >= 8:
             continue
 
-        if adjPos == [0,0]: # or adjPos == [12,12]:
+        if adjPos == [0,0]:
             continue
 
         dir = direction((current[0], current[1]), adjPos)
@@ -276,7 +273,7 @@ while unprocessed:
                 init_graph[current][destination] = int(map[adjPos[0]][adjPos[1]])
                 unprocessed.append(destination)
 
-        elif current[2] == dir and current[3] == 3:
+        elif current[2] == dir and current[3] == 9: # JOTA: Change from part 1 to part 2, 3-->9
             # don't create connection -- same direction and we're already at 3
             continue
 
@@ -293,10 +290,9 @@ while unprocessed:
                 init_graph[current][destination] = int(map[adjPos[0]][adjPos[1]])
                 unprocessed.append(destination)
 
-        vertexCount += 1
+        edgeCount += 1
     
-# print(init_graph)
-print("Graph created, vertices =", vertexCount)
+print("Graph created, edges =", edgeCount)
 
 
 graph = Graph(nodes, init_graph)
@@ -317,16 +313,5 @@ print("Node with lowest cost:", minNode, "Cost:", minDist)
 
 result = print_result(previous_nodes, shortest_path, start_node=(0,0, "X", 0), target_node=minNode) #(nrows-1,ncols-1))
 
-print("Result part 1: ", result) # part 1 - 6906
-print("--- %s seconds ---" % (time.time() - start_time))
-
-# Result part 1:  1260 YES!!!!!!
-# --- 1852.2774050235748 seconds ---
-
-# part 2
-
-result = -1
-
-start_time = time.time()
 print("Result part 2: ", result) 
 print("--- %s seconds ---" % (time.time() - start_time))
