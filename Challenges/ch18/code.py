@@ -27,30 +27,34 @@ for line in lines:
 # print(instructions)
 
 # find boundaries
-boundaries = [0,0,0,0] # top left / bottom right, row-column
-current = [0,0]
+def calculateBoundaries(instructions):
+    boundaries = [0,0,0,0] # top left / bottom right, row-column
+    current = [0,0]
 
-for instruction in instructions:
-    if instruction[0] == "R":
-        current[1] += instruction[1]
-        if current[1] > boundaries[3]:
-            boundaries[3] = current[1]
+    for instruction in instructions:
+        if instruction[0] == "R":
+            current[1] += instruction[1]
+            if current[1] > boundaries[3]:
+                boundaries[3] = current[1]
 
-    elif instruction[0] == "L":
-        current[1] -= instruction[1]
-        if current[1] < boundaries[1]:
-            boundaries[1] = current[1]
+        elif instruction[0] == "L":
+            current[1] -= instruction[1]
+            if current[1] < boundaries[1]:
+                boundaries[1] = current[1]
 
-    elif instruction[0] == "D":
-        current[0] += instruction[1]
-        if current[0] > boundaries[2]:
-            boundaries[2] = current[0]
-            
-    elif instruction[0] == "U":
-        current[0] -= instruction[1]
-        if current[0] < boundaries[0]:
-            boundaries[0] = current[0]
+        elif instruction[0] == "D":
+            current[0] += instruction[1]
+            if current[0] > boundaries[2]:
+                boundaries[2] = current[0]
+                
+        elif instruction[0] == "U":
+            current[0] -= instruction[1]
+            if current[0] < boundaries[0]:
+                boundaries[0] = current[0]
 
+    return boundaries
+
+boundaries = calculateBoundaries(instructions)
 print(boundaries)
 
 nrows = boundaries[2] - boundaries[0]
@@ -140,9 +144,7 @@ fill(map)
 result = map.sum()
 # printMap(map)
 
-
 start_time = time.time()
-
 print("Result part 1: ", result) # part 1 - 
 print("--- %s seconds ---" % (time.time() - start_time))
 
@@ -152,8 +154,30 @@ print("--- %s seconds ---" % (time.time() - start_time))
 
 # part 2
 
+start_time = time.time()
+
 result = -1
 
-start_time = time.time()
+newInstructions = []
+
+for instruction in instructions:
+
+    hex = int("0x" + instruction[2][1:6], 16)
+    dir = instruction[2][6]
+    match dir:
+        case "0":
+            dir = "R"
+        case "1":
+            dir = "D"
+        case "2":
+            dir = "L"
+        case "3":
+            dir = "U"
+
+    newInstructions.append([dir,hex])    
+
+print(calculateBoundaries(newInstructions))
+print(newInstructions)
+
 print("Result part 2: ", result) 
 print("--- %s seconds ---" % (time.time() - start_time))

@@ -13,7 +13,7 @@ import sys
 # main code
 
 # read all the lines
-with open('Challenges/ch17/input.txt') as f:
+with open('Challenges/ch17/sample.txt') as f:
     lines = f.read().splitlines()
 
 # parse data file content
@@ -64,6 +64,7 @@ class Graph(object):
         This method makes sure that the graph is symmetrical.
         In other words, if there's a path from node A to B with a value V,
         there needs to be a path from node B to node A with a value V.
+        JOTA: COMMENTED CODE FOR THE BEHAVIOUR ABOVE -- DON'T WANT THINGS TO BE REVERSIBLE
         '''
         graph = {}
         for node in nodes:
@@ -86,15 +87,29 @@ class Graph(object):
         "Returns the neighbors of a node."
         connections = []
         for out_node in self.nodes:
-            if self.graph[node].get(out_node, False) != False:
+            # JOTA added "node in self.graph and" because of the cleanup() addition 
+            if node in self.graph and self.graph[node].get(out_node, False) != False:
                 connections.append(out_node)
         return connections
     
     def value(self, node1, node2):
         "Returns the value of an edge between two nodes."
         return self.graph[node1][node2]
+    
+
+    # JOTA adition
+    def cleanup(self):
+        # self.nodes = nodes
+        # self.graph = self.construct_graph(nodes, init_graph)
+
+        self.graph = {k: v for k, v in self.graph.items() if len(v) > 0}
+        self.nodes = [node for node in self.nodes if node in self.graph.keys()]
+        return 1
+    
+
 
 def direction(sourceNode, targetNode):
+    "Returns the cardinal direction when you go from the source to the target node"
     if sourceNode[0] == targetNode[0]:
         if sourceNode[1] == targetNode[1]+1:
             return "W"
@@ -106,9 +121,11 @@ def direction(sourceNode, targetNode):
         elif sourceNode[0] == targetNode[0]+1:
             return "N"
     
+    # otherwise / should never happens
     return "banana"
 
 def dijkstra_algorithm(graph, start_node):
+    "Applies Dijkstra's shortest path algorithm"
     unvisited_nodes = list(graph.get_nodes())
  
     # We'll use this dict to save the cost of visiting each node and update it as we move along the graph   
@@ -137,6 +154,13 @@ def dijkstra_algorithm(graph, start_node):
         # The code block below retrieves the current node's neighbors and updates their distances
         neighbors = graph.get_outgoing_edges(current_min_node)
         for neighbor in neighbors:
+            # JOTA edit - prevent revisiting nodes
+            if current_min_node in previous_nodes:
+                prev_visited_node = previous_nodes[current_min_node]
+                if prev_visited_node[0] == neighbor[0] and prev_visited_node[1] == neighbor[1]:
+                    continue
+            # JOTA end edit
+
             tentative_value = shortest_path[current_min_node] + graph.value(current_min_node, neighbor)
             if tentative_value < shortest_path[neighbor]:
                 shortest_path[neighbor] = tentative_value
@@ -149,16 +173,16 @@ def dijkstra_algorithm(graph, start_node):
     return previous_nodes, shortest_path
 
 def print_result(previous_nodes, shortest_path, start_node, target_node):
+    "Auxiliary function to print the path and map in a convenient way and returns the sum of the cost"
     path = []
     node = target_node
     
-    while node != (0, 0, 'X', 0): #start_node[:2]:
+    while node != start_node:
         path.append(node)
         node = previous_nodes[node]
  
     # Add the start node manually
     path.append(start_node)
-    # print(path)
     
     print("We found the following best path with a value of {}.".format(shortest_path[target_node]))
     print(" -> ".join(reversed([''.join(i) for i in [str(i) for i in path]])))
@@ -232,6 +256,10 @@ while unprocessed:
     for adjPos in adjacentPositions:
         # from -> to = distance
 
+        # JOTA OPTIMIZATION HERE
+        if int(map[adjPos[0]][adjPos[1]]) >= 8:
+            continue
+
         if adjPos == [0,0]: # or adjPos == [12,12]:
             continue
 
@@ -268,6 +296,8 @@ print("Graph created, vertices =", vertexCount)
 
 
 graph = Graph(nodes, init_graph)
+graph.cleanup()
+print("After cleanup, #nodes", len(graph.nodes))
 previous_nodes, shortest_path = dijkstra_algorithm(graph=graph, start_node=(0,0, "X", 0))
 
 print("---------")
@@ -275,7 +305,7 @@ print("---------")
 minNode = None
 minDist = 99999999
 for p in shortest_path:
-    if p[0] == 12 and p[1] == 12 and p[2] in ["S", "E"]:
+    if p[0] == ncols-1 and p[1] == nrows-1 and p[2] in ["S", "E"]:
         # print("SP:", p, "Dist:", shortest_path[p])
         if shortest_path[p] < minDist:
             minDist = shortest_path[p]
@@ -290,16 +320,13 @@ print("########")
 
 result = print_result(previous_nodes, shortest_path, start_node=(0,0, "X", 0), target_node=minNode) #(nrows-1,ncols-1))
 
-
 # result = findShortestPath(map, paths)
 
 print("Result part 1: ", result) # part 1 - 6906
 print("--- %s seconds ---" % (time.time() - start_time))
 
-# 2419 is too high /  Found new mininum: 2419 / secs: 37212.687748909
-# 1559 is too high Found new mininum: 1559 / secs: 157.61041522026062 len(paths):  405 len(path): 318
-# djk maggie diz 1302 is wrong
-# 1261 É O VALOR CERTO
+# Result part 1:  1260 YES!!!!!!
+# --- 1852.2774050235748 seconds ---
 
 # part 2
 
