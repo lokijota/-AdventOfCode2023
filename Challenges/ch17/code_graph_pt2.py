@@ -13,7 +13,7 @@ import sys
 # main code
 
 # read all the lines
-with open('Challenges/ch17/sample.txt') as f:
+with open('Challenges/ch17/input.txt') as f:
     lines = f.read().splitlines()
 
 # parse data file content
@@ -25,7 +25,6 @@ map = lines
 # global variables
 
 # weight of a given path, nodes it's been through
-# paths = [ [int(map[0][0]) , [[0,0]]] ]
 paths = [ [0 , [[0,0]]] ] # start with weight 0, as first square doesn't count
 
 # functions
@@ -96,13 +95,11 @@ class Graph(object):
     def value(self, node1, node2):
         "Returns the value of an edge between two nodes."
         return self.graph[node1][node2]
-    
 
     def cleanup(self):
         "Jota - Auxiliary method to clean-up nodes that have no connections, from the graph and node base -- makes dijkstra faster"
         self.graph = {k: v for k, v in self.graph.items() if len(v) > 0}
         self.nodes = [node for node in self.nodes if node in self.graph.keys()]
-
 
 def direction(sourceNode, targetNode):
     "Returns the cardinal direction when you go from the source to the target node"
@@ -118,7 +115,7 @@ def direction(sourceNode, targetNode):
             return "N"
     
     # otherwise / should never happens
-    return "banana"
+    assert False, "Shouldn't get here"
 
 def dijkstra_algorithm(graph, start_node):
     "Applies Dijkstra's shortest path algorithm"
@@ -138,6 +135,10 @@ def dijkstra_algorithm(graph, start_node):
     shortest_path[start_node] = 0
     
     # The algorithm executes until we visit all nodes
+    # JOTA edit
+    pbar = tqdm(total=len(unvisited_nodes)+1)
+    # JOTA end edit
+
     while unvisited_nodes:
         # The code block below finds the node with the lowest score
         current_min_node = None
@@ -155,7 +156,16 @@ def dijkstra_algorithm(graph, start_node):
                 prev_visited_node = previous_nodes[current_min_node]
                 if prev_visited_node[0] == neighbor[0] and prev_visited_node[1] == neighbor[1]:
                     continue
+            
+            # skip paths that are doomed
+            # manhattanDistanceToEnd = nrows - nextMovement[0] -1 + ncols - nextMovement[1] -1
+            # if path[0] + int(map[nextMovement[0]][nextMovement[1]]) + manhattanDistanceToEnd*3 > min:
+            #     continue
+
             # JOTA end edit
+            
+            
+
 
             tentative_value = shortest_path[current_min_node] + graph.value(current_min_node, neighbor)
             if tentative_value < shortest_path[neighbor]:
@@ -170,7 +180,10 @@ def dijkstra_algorithm(graph, start_node):
  
         # After visiting its neighbors, we mark the node as "visited"
         unvisited_nodes.remove(current_min_node)
+        pbar.update(1) # JOTA added
     
+    pbar.close() # JOTA added
+
     return previous_nodes, shortest_path
 
 def print_result(previous_nodes, shortest_path, start_node, target_node):
@@ -191,11 +204,18 @@ def print_result(previous_nodes, shortest_path, start_node, target_node):
 
     return shortest_path[target_node]
 
+# Implemented a cache that has an abt 10% impact with the final dataset
+surroundingPositionsCache = {}
+
 def generateSurroundingPositions(pos):
-    "Returns a list with the coordinates surrounding the passed possition, in row,column format."
+    "Returns a list with the coordinates surrounding the passed position, in (row,column) format."
     surroundingPositions = []
 
-    # order is relevant. what I put in the end is explored first.
+    cachekey = str(pos[0]) + "_" + str(pos[1])
+    if cachekey in surroundingPositionsCache:
+        return surroundingPositionsCache[cachekey]
+    
+    # order is relevant for the exploration, at least in part 1. What is added last is explored first.
 
     if pos[1] > 0: # and pos[0] != nrows-1:
         surroundingPositions.append([pos[0], pos[1]-1])
@@ -209,10 +229,52 @@ def generateSurroundingPositions(pos):
     if pos[0]+1 < nrows:
         surroundingPositions.append([pos[0]+1, pos[1]])
 
+    surroundingPositionsCache[cachekey] = surroundingPositions
     return surroundingPositions
 
-# process data
+def oppositeDirection(dir):
+    if dir == "S":
+        return "N"
+    if dir == "N":
+        return "S"
+    if dir == "E":
+        return "W"
+    if dir == "W":
+        return "E"
+    
+    assert False, "Shouldn't get here"
 
+def moveInDirByNSteps(map, pos, dir, nsteps):
+    "Move by nsteps in direction dir. Returns None if out of bounds. Specific for part 2"
+    cost = 0
+
+    if dir == "N" and pos[0]-nsteps+1>=0 and pos[1] > 0: #3rd condition to avoid going back to 0,0
+        for j in range(0, nsteps):
+            cost += int(map[pos[0]-j][pos[1]])
+
+        return cost,(pos[0]-nsteps+1, pos[1])
+
+    if dir == "S" and pos[0]+nsteps-1 < nrows:
+        for j in range(0, nsteps):
+            cost += int(map[pos[0]+j][pos[1]])
+
+        return cost, (pos[0]+nsteps-1, pos[1])
+
+    if dir == "W" and pos[1]-nsteps+1>=0 and pos[0] > 0: #3rd condition to avoid going back to 0,0
+        for j in range(0, nsteps):
+            cost += int(map[pos[0]][pos[1]-j])
+        
+        return cost, (pos[0], pos[1]-nsteps+1)
+
+    if dir == "E" and pos[1]+nsteps-1 < ncols:
+        for j in range(0, nsteps):
+            cost += int(map[pos[0]][pos[1]+j])
+
+        return cost, (pos[0], pos[1]+nsteps-1)
+    
+    return 0, None
+
+# process data
 # part 2
 
 result = 0
@@ -243,23 +305,17 @@ for r in range(0,nrows):
                 init_graph[currentNodeKey] = {}
 
 print("Nb of Nodes:", len(init_graph))
-# 1.2 Create the connections (edges)
-        
-unprocessed = [(0,0,"X", 0)]
 
+# 1.2 Create the connections (edges)        
+unprocessed = [(0,0,"X", 0)]
 edgeCount = 0
 
 while unprocessed:
-    
     current = unprocessed.pop()
 
     adjacentPositions = generateSurroundingPositions([current[0],current[1]])
     for adjPos in adjacentPositions:
-        # from -> to = distance
-
-        # JOTA OPTIMIZATION HERE
-        if int(map[adjPos[0]][adjPos[1]]) >= 8:
-            continue
+        # from -> to in direction dir => distance/cost
 
         if adjPos == [0,0]:
             continue
@@ -267,14 +323,18 @@ while unprocessed:
         dir = direction((current[0], current[1]), adjPos)
 
         if current == (0,0,"X",0):
-            destination = (adjPos[0], adjPos[1], dir, current[3]+1)
+            costOfJump, nextPos = moveInDirByNSteps(map, adjPos, dir, 4)
+            destination = (nextPos[0], nextPos[1], dir, 4)
 
             if destination not in init_graph[current]:
-                init_graph[current][destination] = int(map[adjPos[0]][adjPos[1]])
+                init_graph[current][destination] = costOfJump
                 unprocessed.append(destination)
+            
+        elif current[2] == oppositeDirection(dir):
+            continue
 
         elif current[2] == dir and current[3] == 9: # JOTA: Change from part 1 to part 2, 3-->9
-            # don't create connection -- same direction and we're already at 3
+            # don't create connection -- same direction and we're already at 3 (i.e., 9 for part 2)
             continue
 
         elif current[2] == dir:
@@ -285,9 +345,15 @@ while unprocessed:
                 unprocessed.append(destination)
 
         elif current[2] != dir:
-            destination =  (adjPos[0], adjPos[1], dir, 1)
+            # change of direction, let's more 4
+            costOfJump, nextPos = moveInDirByNSteps(map, adjPos, dir, 4)
+            if nextPos is None: # out of bounds
+                continue
+            
+            destination = (nextPos[0], nextPos[1], dir, 4)
+
             if destination not in init_graph[current]:
-                init_graph[current][destination] = int(map[adjPos[0]][adjPos[1]])
+                init_graph[current][destination] = costOfJump
                 unprocessed.append(destination)
 
         edgeCount += 1
@@ -304,10 +370,11 @@ previous_nodes, shortest_path = dijkstra_algorithm(graph=graph, start_node=(0,0,
 minNode = None
 minDist = 99999999
 for p in shortest_path:
-    if p[0] == ncols-1 and p[1] == nrows-1 and p[2] in ["S", "E"]:
+    if p[0] == nrows-1 and p[1] == ncols-1 and p[2] in ["S", "E"]:
         if shortest_path[p] < minDist:
             minDist = shortest_path[p]
             minNode = p
+assert minDist != 99999999, "Path not found!"
 
 print("Node with lowest cost:", minNode, "Cost:", minDist)
 
