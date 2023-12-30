@@ -55,7 +55,7 @@ def calculateBoundaries(instructions):
     return boundaries
 
 boundaries = calculateBoundaries(instructions)
-print(boundaries)
+print("Boundaries: ", boundaries)
 
 nrows = boundaries[2] - boundaries[0]
 ncols = boundaries[3] - boundaries[1]
@@ -161,7 +161,6 @@ result = -1
 newInstructions = []
 
 for instruction in instructions:
-
     hex = int("0x" + instruction[2][1:6], 16)
     dir = instruction[2][6]
     match dir:
@@ -177,7 +176,68 @@ for instruction in instructions:
     newInstructions.append([dir,hex])    
 
 print(calculateBoundaries(newInstructions))
-print(newInstructions)
+# print(newInstructions)
+
+# convert instructions to pixel locations
+
+# debug_sample = [ \
+#     ['R', 6],\
+#     ['D', 5],\
+#     ['L', 2], \
+#     ['D', 2],\
+#     ['R', 2], \
+#     ['D', 2], \
+#     ['L', 5], \
+#     ['U', 2], \
+#     ['L', 1], \
+#     ['U', 2], \
+#     ['R', 2], \
+#     ['U', 3], \
+#     ['L', 2],\
+#     ['U', 2]\
+# ]
+
+# newInstructions = debug_sample
+# print(newInstructions)
+
+current_loc = [0,0]
+px_locations = []
+px_locations.append(current_loc.copy())
+
+# let's use (x,y) instead of (r,c)
+edge_size = 0
+for instruction in newInstructions:
+    if instruction[0] == "R":
+        current_loc[0] += instruction[1]
+        
+    elif instruction[0] == "L":
+        current_loc[0] -= instruction[1]
+
+    elif instruction[0] == "U":
+        current_loc[1] += instruction[1]
+    else:
+        current_loc[1] -= instruction[1]
+
+    edge_size += instruction[1]
+    px_locations.append([current_loc[0], current_loc[1]])
+
+# print(px_locations)
+
+px_locations.reverse()
+
+# shoelace algorithm
+    
+sum = 0
+for j in range(0, len(px_locations)-1):
+    sum += px_locations[j][0] * px_locations[j+1][1]
+    sum -= px_locations[j][1] * px_locations[j+1][0]
+
+result = int(sum/2)
+result += int(edge_size/2+1) # this is specific for pixel solutions... need to add the boundary/2 + 1, as it's pixelated not an area
 
 print("Result part 2: ", result) 
 print("--- %s seconds ---" % (time.time() - start_time))
+
+# 39544385834783 is too low
+# 79088771669566 is too low
+# 79088855654037

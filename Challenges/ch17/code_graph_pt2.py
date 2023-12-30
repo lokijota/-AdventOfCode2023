@@ -57,6 +57,7 @@ class Graph(object):
     def __init__(self, nodes, init_graph):
         self.nodes = nodes
         self.graph = self.construct_graph(nodes, init_graph)
+        # self.outgoingedgescache = {}
         
     def construct_graph(self, nodes, init_graph):
         '''
@@ -86,10 +87,18 @@ class Graph(object):
     def get_outgoing_edges(self, node):
         "Returns the neighbors of a node."
         connections = []
+
+        # Jota - small effect not worth it
+        # cachekey = str(node[0]) + "_" + str(node[1]) + node[2] + str(node[3])
+        # if cachekey in self.outgoingedgescache:
+        #     return self.outgoingedgescache[cachekey]
+
         for out_node in self.nodes:
             # JOTA added "node in self.graph and" because of the cleanup() addition 
             if node in self.graph and self.graph[node].get(out_node, False) != False:
                 connections.append(out_node)
+
+        # self.outgoingedgescache[cachekey] = connections
         return connections
     
     def value(self, node1, node2):
@@ -147,7 +156,16 @@ def dijkstra_algorithm(graph, start_node):
                 current_min_node = node
             elif shortest_path[node] < shortest_path[current_min_node]:
                 current_min_node = node
-                
+        
+        # if shortest_path[current_min_node] > 1687:
+        #         continue
+        # min = 1687
+        # manhattanDistanceToEnd = nrows - current_min_node[0] + ncols - current_min_node[1] -2
+        # if shortest_path[current_min_node] +  manhattanDistanceToEnd*2 > min:
+        # if shortest_path[current_min_node] > min:
+        #     unvisited_nodes.remove(current_min_node)
+        #     pbar.update(1) # JOTA added
+        
         # The code block below retrieves the current node's neighbors and updates their distances
         neighbors = graph.get_outgoing_edges(current_min_node)
         for neighbor in neighbors:
@@ -156,17 +174,8 @@ def dijkstra_algorithm(graph, start_node):
                 prev_visited_node = previous_nodes[current_min_node]
                 if prev_visited_node[0] == neighbor[0] and prev_visited_node[1] == neighbor[1]:
                     continue
-            
-            # skip paths that are doomed
-            # manhattanDistanceToEnd = nrows - nextMovement[0] -1 + ncols - nextMovement[1] -1
-            # if path[0] + int(map[nextMovement[0]][nextMovement[1]]) + manhattanDistanceToEnd*3 > min:
-            #     continue
-
             # JOTA end edit
             
-            
-
-
             tentative_value = shortest_path[current_min_node] + graph.value(current_min_node, neighbor)
             if tentative_value < shortest_path[neighbor]:
                 shortest_path[neighbor] = tentative_value
@@ -317,6 +326,14 @@ while unprocessed:
     for adjPos in adjacentPositions:
         # from -> to in direction dir => distance/cost
 
+        # JOTA OPTIMIZATION HERE
+        if int(map[adjPos[0]][adjPos[1]]) >= 6:
+            continue
+
+        # if (adjPos[0] >= 142/2 -14*4 and adjPos[0] <= 142/2 + 14*4) and \
+        #    (adjPos[1] >= 142/2 -14*4 and adjPos[1] <= 142/2 + 14*4):
+        #     continue
+
         if adjPos == [0,0]:
             continue
 
@@ -345,6 +362,7 @@ while unprocessed:
                 unprocessed.append(destination)
 
         elif current[2] != dir:
+
             # change of direction, let's more 4
             costOfJump, nextPos = moveInDirByNSteps(map, adjPos, dir, 4)
             if nextPos is None: # out of bounds
@@ -382,3 +400,8 @@ result = print_result(previous_nodes, shortest_path, start_node=(0,0, "X", 0), t
 
 print("Result part 2: ", result) 
 print("--- %s seconds ---" % (time.time() - start_time))
+
+# 1523 is too high, com esta condição a evitar pôr nós no grafo -- mas demorou "apenas" 30mins
+# if (adjPos[0] >= 142/2 -14*4 and adjPos[0] <= 142/2 + 14*4) and \
+# (adjPos[1] >= 142/2 -14*4 and adjPos[1] <= 142/2 + 14*4):
+#     continue
