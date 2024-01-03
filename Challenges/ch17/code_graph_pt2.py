@@ -1,12 +1,19 @@
-import numpy as np
-from collections import Counter
-import re
 import copy
-from tqdm import tqdm
-import time
-from collections import deque
+import numpy as np
 import random
+import re
 import sys
+import time
+from tqdm import tqdm
+from collections import Counter, deque
+
+# ideas for optimization
+# priority queue with heappq -- uniform cost search
+#   add dir to state / follow-ups have always to be left or right
+#   generate all possible next positions in a direction as next steps
+#   use complex numbers for the directions?
+# numba and numpy array 
+
 
 # functions
 
@@ -21,6 +28,7 @@ with open('Challenges/ch17/input.txt') as f:
 nrows = len(lines)
 ncols = len(lines[0])
 map = [[int(i) for i in row] for row in lines]
+map = np.array(map) #np array is actually slower than list of lists for random access - https://stackoverflow.com/questions/60824369/python-numpy-array-is-slower-than-list
 
 # global variables
 
