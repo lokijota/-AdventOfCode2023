@@ -50,13 +50,13 @@ def printPath(map, path):
                 print(map[r][c], end="")
         print()
 
-def get_possible_next_nodes(current_min_node, min_steps, maxSteps):
+def get_possible_next_nodes(current_min_node, min_steps, max_steps):
     "Returns all possible next nodes, for all possible movement directions considering the current node"
 
     if current_min_node[0] == 0 and current_min_node[1] == 0:
         if current_min_node[2] == "X": # start node
-            vert = [(sum(map[current_min_node[0]+1:current_min_node[0]+j+1, current_min_node[1]]),(current_min_node[0]+j ,current_min_node[1],"S")) for j in range(min_steps, maxSteps+1)]
-            horz = [(sum(map[current_min_node[0], current_min_node[1]+1:current_min_node[1]+j+1]),(current_min_node[0],current_min_node[1]+j,"E")) for j in range(min_steps, maxSteps+1)]
+            vert = [(sum(map[current_min_node[0]+1:current_min_node[0]+j+1, current_min_node[1]]),(current_min_node[0]+j ,current_min_node[1],"S")) for j in range(min_steps, max_steps+1)]
+            horz = [(sum(map[current_min_node[0], current_min_node[1]+1:current_min_node[1]+j+1]),(current_min_node[0],current_min_node[1]+j,"E")) for j in range(min_steps, max_steps+1)]
             return vert + horz
         else:
             return [] #repeat visits to 0,0 make no sense
@@ -67,12 +67,12 @@ def get_possible_next_nodes(current_min_node, min_steps, maxSteps):
 
         # North
         if current_min_node[0] >= min_steps:
-            real_max = min(maxSteps, current_min_node[0])
+            real_max = min(max_steps, current_min_node[0])
             vertN = [(sum(map[current_min_node[0]-j:current_min_node[0], current_min_node[1]]),(current_min_node[0]-j ,current_min_node[1],"N")) for j in range(min_steps, real_max+1)]
 
         # South
         if current_min_node[0] <= nrows - min_steps: 
-            real_max = min(maxSteps, nrows-1-current_min_node[0])
+            real_max = min(max_steps, nrows-1-current_min_node[0])
             vertS = [(sum(map[current_min_node[0]+1:current_min_node[0]+j+1, current_min_node[1]]),(current_min_node[0]+j ,current_min_node[1],"S")) for j in range(min_steps, real_max+1)]
 
         return vertN + vertS
@@ -83,12 +83,12 @@ def get_possible_next_nodes(current_min_node, min_steps, maxSteps):
 
         # East
         if current_min_node[1] <= ncols - min_steps: 
-            real_max = min(maxSteps, ncols-1-current_min_node[1])
+            real_max = min(max_steps, ncols-1-current_min_node[1])
             horzE = [(sum(map[current_min_node[0], current_min_node[1]+1:current_min_node[1]+j+1]),(current_min_node[0],current_min_node[1]+j,"E")) for j in range(min_steps, real_max+1)]
 
         # West
         if current_min_node[1] >= min_steps:
-            real_max = min(maxSteps, current_min_node[1])
+            real_max = min(max_steps, current_min_node[1])
             horzW = [(sum(map[current_min_node[0], current_min_node[1]-j:current_min_node[1]]),(current_min_node[0],current_min_node[1]-j,"W")) for j in range(min_steps, real_max+1)]
 
         return horzE + horzW
