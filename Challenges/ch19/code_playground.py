@@ -163,7 +163,6 @@ def is_accepted(workflows, machine_part):
 
     return wf_name == "A"
 
-# part C - go over all the combinations and sum the regions that are A
 
 b = {}
 count_accepted = 0
@@ -175,6 +174,7 @@ lastx = 0
 # 167409079868000
 # ok I can reproduce the sample results now in the sample input with the code below
 
+"""
 print(len(boundaries['x']))
 
 for xlower in boundaries['x']:
@@ -214,8 +214,8 @@ for xlower in boundaries['x']:
 # print(count_accepted)
 print(sum_accepted)
 
-# solution after two hours: 131796824371749
 
+# part C - go over all the combinations (eg the middle point in each) -- create a new list with the middle points!
 
 
 
@@ -224,7 +224,7 @@ print(sum_accepted)
 print("--- %s seconds ---" % (time.time() - start_time))
 
 sys.exit()
-
+"""
 
 # part 2 - old from dec2023
 
