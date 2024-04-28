@@ -17,4 +17,6 @@ Useful links:
 - Challenge 12: damaged springs -- a sort of string matching of different alternatives. Found a very fast solution, if not particularly smart, after a lot of silly coding to get there.
 - Challenge 15: stupid challenge all about understanding the problem, not solving it. To throw off GPT-n?. Anyway, didn't like this one. 
 - Challenge 16: this was the one with laser beams and reflections on a square matrix/map, very quantum-like.
-- Challenge 17: Dijsktra on steroids. Path-finding but can't go more than 4 nodes in the same direction. Too ages to get to a working solution. In the end, each node was divided in 16 nodes, 4 for each cardinal direction and 4 for each distances. After this it was a "normal" shortest path, but still taking 1800 seconds, so I'm sure a faster solution can be found.
+- Challenge 17: Dijsktra on steroids. Path-finding but can't go more than 4 nodes in the same direction. Too ages to get to a working solution. In the end, each node was divided in 16 nodes, 4 for each cardinal direction and 4 for each distances. After this it was a "normal" shortest path, but still taking 1800 seconds, so I'm sure a faster solution can be found. Edit: worked on a new version, massively simplified, based on Uniform-Cost Search (Dijkstra for large Graphs) and using heapq, also generating next positions on run-time instead of ahead of time, that runs... in under a second. Sigh. Spent many hours on this one, also making silly distraction and bugs all the time. Happy with the final solution, finally.
+
+
