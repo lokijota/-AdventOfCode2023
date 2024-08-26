@@ -31,8 +31,7 @@ for line in lines:
         module_name = parts[0][1:]
 
     elif parts[0].startswith("&"):
-        # TODO: tenho de inicializar com o numero de origens e não com o número de destinos
-        new_module = ["&",  0 , destinations, {}] #np.zeros(len(destinations), dtype=int)
+        new_module = ["&",  0 , destinations, {}]
         module_name = parts[0][1:]
 
     else: # broadcaster
@@ -62,6 +61,7 @@ for module_name, module_config in modules.items():
             else:
                 nand_modules_inputs[target_module_name].append(module_name)
 
+
 # print(nand_modules_inputs)
 # e.g., {'inv': ['a'], 'con': ['a', 'b']}
                 
@@ -88,12 +88,16 @@ for nand_key, nand_origins in nand_modules_inputs.items():
 result = 0
 signal_queue = deque()
 count = np.zeros(2, dtype=int)
+total_button_presses = 0
 
 # process data
 
 def queue_signal(target, signal, source):
     signal_queue.append([target, signal, source])
     count[signal] += 1
+
+    # if(target == "rx" and signal == 0):
+    #     print(f"Got a 0 in rx after {total_button_presses}")
 
 def queue_signals(targets, signal, source):
     for target in targets:
@@ -104,7 +108,7 @@ start_time = time.time()
 
 # button presses loop
 
-for pressn in range(1000):
+for pressn in range(-1): #1000 - using -1 to skip
 
     queue_signal("broadcaster", 0, "button")
 
@@ -138,14 +142,76 @@ for pressn in range(1000):
 
 result = count[0] * count[1]
 
+print(count)
 print("Result part 1: ", result) # part 1 - 
 print("--- %s seconds ---" % (time.time() - start_time))
 
 # part 2 - new from apr2024
 
+# input("*********** Press Enter to continue... **********")
+
 start_time = time.time()
-result = 0
+postions_of_zero = {}
+postions_of_zero["ks"] = 0
+postions_of_zero["sx"] = 0
+postions_of_zero["jt"] = 0
+postions_of_zero["kb"] = 0
+count_finds = 0
+
+# not needed
+# def principal_period(s):
+#     i = (s+s).find(s, 1, -1)
+#     return None if i == -1 else s[:i]
+
+while total_button_presses < 2000000: #True:
+
+    queue_signal("broadcaster", 0, "button")
+    total_button_presses += 1
+
+    while len(signal_queue) > 0:
+        sig = signal_queue.popleft()
+
+        if sig[0] == "broadcaster":
+            queue_signals(modules[sig[0]][2], 0, sig[0])
+        else:
+            # get the module that's receiving the signal
+            target_module = modules[sig[0]]
+            if target_module[0] == "%": #flip-flop
+                if sig[1] == 0:
+                    # we must flip
+                    target_module[1] = (target_module[1] + 1) % 2
+                    # and send it to all connected modules
+                    queue_signals(target_module[2], target_module[1], sig[0])
+            elif target_module[0] == "&": #nand
+                # 1. update the position of the received signal
+                position_to_update = target_module[3][sig[2]]
+                target_module[1][position_to_update] = sig[1]
 
 
-print("Result part 2: ", result) # part 1 - 425811
-print("--- %s seconds ---" % (time.time() - start_time))
+                # I sketched the network on paper and got that rx received from zh which received from the next four in the list.
+                # I did some debugs and they mostly output 1. Below I am just looking for the first 0 from each of them, 
+                # and assume that the pattern repeats and a 0 shows up every N elements, with a different N for each of the
+                # four modules that lead to zh. So if that's the periodicity, I just find it and multiply them together to find the
+                # minimum common denominator, the place they all meet.
+                # Not a generic solution, I don't like that (as the repeating sequence could have more elements after the zero). 
+                # But it works and it's fast.s
+                if sig[0] in ["ks", "sx", "jt", "kb"]:
+
+                    if sig[1] == 0 and postions_of_zero[sig[0]] == 0:
+                        postions_of_zero[sig[0]] = total_button_presses
+                        print(f"{sig[0]} was 1 at position {total_button_presses}")
+                        count_finds += 1
+                        if count_finds == 4:
+                            result = 1
+                            for el in postions_of_zero.values():
+                                result *= el
+
+                            print("Result part 2: ", result) # 
+                            print("--- %s seconds ---" % (time.time() - start_time))
+                            exit()
+                        
+                # 2. check if all of them are 1, send a 0 / else send a 1
+                if sum(target_module[1]) == len(target_module[3]):
+                    queue_signals(target_module[2], 0, sig[0])
+                else:
+                    queue_signals(target_module[2], 1, sig[0])
