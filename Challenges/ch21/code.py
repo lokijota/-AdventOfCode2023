@@ -13,32 +13,99 @@ import random
 # main code
 
 # read all the lines
-with open('Challenges/ch21/sample.txt') as f:
+with open('Challenges/ch21/input.txt') as f:
     lines = f.read().splitlines()
 
-# parse data file content
+map = lines
 
-for line in lines:
-    print(line)
+# find position of S
+for rowIdx, row in enumerate(map):
+    pos = row.find("S")
+
+    if pos != -1:
+        break
+
+sPos = [rowIdx, pos]
+
+map[rowIdx] = map[rowIdx].replace("S", ".") # to treat it as a normal plot and not having to treat it specially
+
+nrows = len(map)
+ncols = len(map[0])
+
+def calculate_possible_moves(map):
+    next_positions = { }
+    for row_index in range(0, nrows):
+        for col_index in range(0, ncols):
+            # print(map[row_index][col_index], end="")
+            ht_key = str(row_index) + "_" + str(col_index)
+
+            # calculate available next positions
+            if map[row_index][col_index] == "#":
+                continue
+
+            next_positions[ht_key] = []
+
+            # left
+            if col_index>0 and map[row_index][col_index-1] == ".":
+                next_positions[ht_key].append([row_index, col_index-1])
+
+            # right
+            if col_index<ncols-1 and map[row_index][col_index+1] == ".":
+                next_positions[ht_key].append([row_index, col_index+1])
+
+            # up
+            if row_index>0 and map[row_index-1][col_index] == ".":
+                next_positions[ht_key].append([row_index-1, col_index])
+
+            # down
+            if row_index<nrows-1 and map[row_index+1][col_index] == ".":
+                next_positions[ht_key].append([row_index+1, col_index])
+
+            # print(next_positions[ht_key])
+
+    return next_positions
+
 
 # global variables
 result = 0
+next_positions_ht = calculate_possible_moves(map)
 
 # process data
-
 
 # part 1
 start_time = time.time()
 
-print("Result part 1: ", result) 
+
+positions_to_explore_queue = deque()
+positions_to_explore_queue.append(sPos)
+for nstep in range(0, 64):
+
+    pos_after_step = set()
+
+    while len(positions_to_explore_queue) > 0:
+        pos = positions_to_explore_queue.popleft()
+
+        ht_key = str(pos[0]) + "_" + str(pos[1])
+        [pos_after_step.add(str(p[0]) + "_" + str(p[1])) for p in next_positions_ht[ht_key]]
+    
+    # now that we have finished exploring the step, we add everything that is in the set into the queue
+    for pas in pos_after_step:
+        parts = pas.split("_")
+        positions_to_explore_queue.append([int(parts[0]),parts[1] ])
+    
+    # print(pos_after_step)
+    # print(f"Size of queue {len(positions_to_explore_queue)}")
+
+print("Result part 1: ", len(positions_to_explore_queue))
 print("--- %s seconds ---" % (time.time() - start_time))
 
-# part 2 
+# part 2
 
 # input("*********** Press Enter to continue... **********")
 start_time = time.time()
 
 
 
-print("Result part 2: ", result) # 
+print("Result part 2: ", result) #
 print("--- %s seconds ---" % (time.time() - start_time))
+
