@@ -23,6 +23,35 @@ def print_as_map(map, pos):
         print()
 
 
+def print_as_map_inner_rocks_replace(map, pos, ray, center):
+
+    count_inner_stones = 0
+    for r in range(0, nrows):
+        for c in range(0, ncols):
+
+            if (r, c) in pos:
+                print("O", end="")
+            else:
+
+                # this is wrong as the distance to the center is wrong: this is not a circumference
+                if map[r][c] == "#":
+                    
+                    point = Point(c, r)
+                    polygon = Polygon([(0, ray), (ray, 0), (ray*2, ray), (ray, ray*2)])
+                    # print(polygon.contains(point))
+
+                    if polygon.contains(point):
+                        print("@", end="")
+                        count_inner_stones += 1
+                    else:
+                        print(map[r][c], end="")
+
+                else:
+                    print(map[r][c], end="")
+        print()
+
+    return count_inner_stones
+
 def calculate_possible_moves(map):
     next_positions = { } # hash table: position -> list of next positions
 
@@ -124,7 +153,7 @@ for nstep in range(0, 64):
         positions_to_explore_queue.append(pas)
     
     # print(pos_after_step)
-    # print(f"Size of queue {len(positions_to_explore_queue)}")
+    print(f"Size of queue {len(positions_to_explore_queue)}")
 
 
 
@@ -135,6 +164,13 @@ print("Result part 1: ", len(positions_to_explore_queue))
 print("--- %s seconds ---" % (time.time() - start_time))
 
 # part 2
+
+inner_stones = print_as_map_inner_rocks_replace(map, positions_to_explore_queue, 64, (64,64))
+
+print(f"Area of 64 is", calculate_area_of_O(64))
+print(f"Stones inside", inner_stones)
+print("delta:", calculate_area_of_O(64) - inner_stones)
+# isto n está certo. preciso de contar apenas os # que estejam overlapping com 0...
 
 
 # for r in range(0,8):
