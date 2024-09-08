@@ -10,6 +10,7 @@ import random
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 
+
 # functions
 def print_as_map(map, pos):
 

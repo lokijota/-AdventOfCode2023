@@ -1,14 +1,5 @@
-import sys
-import numpy as np
-from collections import Counter
-import re
-import copy
-from tqdm import tqdm
 import time
 from collections import deque
-import random
-from shapely.geometry import Point
-from shapely.geometry.polygon import Polygon
 
 # functions
 def print_as_map(map, pos):
