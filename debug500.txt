@@ -1,0 +1,633 @@
+Step 0, size of queue 4
+Step 1, size of queue 7
+Step 2, size of queue 14
+Step 3, size of queue 22
+Step 4, size of queue 33
+Step 5, size of queue 43
+Step 6, size of queue 57
+Step 7, size of queue 69
+Step 8, size of queue 87
+Step 9, size of queue 104
+Step 10, size of queue 125
+Step 11, size of queue 146
+Step 12, size of queue 170
+Step 13, size of queue 191
+Step 14, size of queue 223
+Step 15, size of queue 248
+Step 16, size of queue 277
+Step 17, size of queue 304
+Step 18, size of queue 346
+Step 19, size of queue 378
+Step 20, size of queue 417
+Step 21, size of queue 458
+Step 22, size of queue 494
+Step 23, size of queue 531
+Step 24, size of queue 573
+Step 25, size of queue 621
+Step 26, size of queue 663
+Step 27, size of queue 721
+Step 28, size of queue 764
+Step 29, size of queue 824
+Step 30, size of queue 870
+Step 31, size of queue 941
+Step 32, size of queue 985
+Step 33, size of queue 1065
+Step 34, size of queue 1101
+Step 35, size of queue 1190
+Step 36, size of queue 1232
+Step 37, size of queue 1321
+Step 38, size of queue 1366
+Step 39, size of queue 1460
+Step 40, size of queue 1502
+Step 41, size of queue 1596
+Step 42, size of queue 1648
+Step 43, size of queue 1734
+Step 44, size of queue 1801
+Step 45, size of queue 1889
+Step 46, size of queue 1953
+Step 47, size of queue 2048
+Step 48, size of queue 2117
+Step 49, size of queue 2214
+Step 50, size of queue 2285
+Step 51, size of queue 2391
+Step 52, size of queue 2461
+Step 53, size of queue 2581
+Step 54, size of queue 2649
+Step 55, size of queue 2762
+Step 56, size of queue 2833
+Step 57, size of queue 2947
+Step 58, size of queue 3036
+Step 59, size of queue 3155
+Step 60, size of queue 3234
+Step 61, size of queue 3401
+Step 62, size of queue 3489
+Step 63, size of queue 3666
+Step 64, size of queue 3752
+Step 65, size of queue 3930
+Step 66, size of queue 4020
+Step 67, size of queue 4202
+Step 68, size of queue 4258
+Step 69, size of queue 4444
+Step 70, size of queue 4504
+Step 71, size of queue 4696
+Step 72, size of queue 4764
+Step 73, size of queue 4958
+Step 74, size of queue 5022
+Step 75, size of queue 5210
+Step 76, size of queue 5276
+Step 77, size of queue 5478
+Step 78, size of queue 5546
+Step 79, size of queue 5758
+Step 80, size of queue 5834
+Step 81, size of queue 6052
+Step 82, size of queue 6136
+Step 83, size of queue 6332
+Step 84, size of queue 6415
+Step 85, size of queue 6627
+Step 86, size of queue 6724
+Step 87, size of queue 6940
+Step 88, size of queue 7040
+Step 89, size of queue 7261
+Step 90, size of queue 7352
+Step 91, size of queue 7569
+Step 92, size of queue 7668
+Step 93, size of queue 7906
+Step 94, size of queue 8013
+Step 95, size of queue 8234
+Step 96, size of queue 8348
+Step 97, size of queue 8566
+Step 98, size of queue 8691
+Step 99, size of queue 8909
+Step 100, size of queue 9037
+Step 101, size of queue 9265
+Step 102, size of queue 9386
+Step 103, size of queue 9630
+Step 104, size of queue 9762
+Step 105, size of queue 9992
+Step 106, size of queue 10126
+Step 107, size of queue 10360
+Step 108, size of queue 10493
+Step 109, size of queue 10741
+Step 110, size of queue 10878
+Step 111, size of queue 11112
+Step 112, size of queue 11262
+Step 113, size of queue 11489
+Step 114, size of queue 11651
+Step 115, size of queue 11901
+Step 116, size of queue 12062
+Step 117, size of queue 12308
+Step 118, size of queue 12482
+Step 119, size of queue 12721
+Step 120, size of queue 12905
+Step 121, size of queue 13141
+Step 122, size of queue 13317
+Step 123, size of queue 13554
+Step 124, size of queue 13745
+Step 125, size of queue 13993
+Step 126, size of queue 14200
+Step 127, size of queue 14421
+Step 128, size of queue 14644
+Step 129, size of queue 14865
+Step 130, size of queue 15093
+Step 131, size of queue 15324
+Step 132, size of queue 15553
+Step 133, size of queue 15779
+Step 134, size of queue 16038
+Step 135, size of queue 16259
+Step 136, size of queue 16517
+Step 137, size of queue 16723
+Step 138, size of queue 16976
+Step 139, size of queue 17207
+Step 140, size of queue 17481
+Step 141, size of queue 17688
+Step 142, size of queue 17964
+Step 143, size of queue 18172
+Step 144, size of queue 18461
+Step 145, size of queue 18694
+Step 146, size of queue 18981
+Step 147, size of queue 19188
+Step 148, size of queue 19467
+Step 149, size of queue 19688
+Step 150, size of queue 19999
+Step 151, size of queue 20215
+Step 152, size of queue 20536
+Step 153, size of queue 20744
+Step 154, size of queue 21059
+Step 155, size of queue 21269
+Step 156, size of queue 21613
+Step 157, size of queue 21816
+Step 158, size of queue 22164
+Step 159, size of queue 22371
+Step 160, size of queue 22704
+Step 161, size of queue 22923
+Step 162, size of queue 23285
+Step 163, size of queue 23489
+Step 164, size of queue 23871
+Step 165, size of queue 24057
+Step 166, size of queue 24456
+Step 167, size of queue 24647
+Step 168, size of queue 25048
+Step 169, size of queue 25233
+Step 170, size of queue 25638
+Step 171, size of queue 25816
+Step 172, size of queue 26226
+Step 173, size of queue 26424
+Step 174, size of queue 26805
+Step 175, size of queue 27032
+Step 176, size of queue 27408
+Step 177, size of queue 27612
+Step 178, size of queue 28010
+Step 179, size of queue 28225
+Step 180, size of queue 28634
+Step 181, size of queue 28840
+Step 182, size of queue 29259
+Step 183, size of queue 29473
+Step 184, size of queue 29906
+Step 185, size of queue 30102
+Step 186, size of queue 30522
+Step 187, size of queue 30726
+Step 188, size of queue 31145
+Step 189, size of queue 31389
+Step 190, size of queue 31820
+Step 191, size of queue 32037
+Step 192, size of queue 32552
+Step 193, size of queue 32817
+Step 194, size of queue 33354
+Step 195, size of queue 33614
+Step 196, size of queue 34144
+Step 197, size of queue 34406
+Step 198, size of queue 34940
+Step 199, size of queue 35130
+Step 200, size of queue 35616
+Step 201, size of queue 35822
+Step 202, size of queue 36316
+Step 203, size of queue 36531
+Step 204, size of queue 37031
+Step 205, size of queue 37227
+Step 206, size of queue 37717
+Step 207, size of queue 37913
+Step 208, size of queue 38430
+Step 209, size of queue 38632
+Step 210, size of queue 39156
+Step 211, size of queue 39375
+Step 212, size of queue 39909
+Step 213, size of queue 40139
+Step 214, size of queue 40620
+Step 215, size of queue 40858
+Step 216, size of queue 41368
+Step 217, size of queue 41619
+Step 218, size of queue 42143
+Step 219, size of queue 42387
+Step 220, size of queue 42919
+Step 221, size of queue 43147
+Step 222, size of queue 43669
+Step 223, size of queue 43911
+Step 224, size of queue 44475
+Step 225, size of queue 44725
+Step 226, size of queue 45255
+Step 227, size of queue 45522
+Step 228, size of queue 46032
+Step 229, size of queue 46327
+Step 230, size of queue 46825
+Step 231, size of queue 47124
+Step 232, size of queue 47633
+Step 233, size of queue 47919
+Step 234, size of queue 48455
+Step 235, size of queue 48765
+Step 236, size of queue 49262
+Step 237, size of queue 49567
+Step 238, size of queue 50075
+Step 239, size of queue 50377
+Step 240, size of queue 50907
+Step 241, size of queue 51221
+Step 242, size of queue 51719
+Step 243, size of queue 52051
+Step 244, size of queue 52528
+Step 245, size of queue 52884
+Step 246, size of queue 53407
+Step 247, size of queue 53753
+Step 248, size of queue 54266
+Step 249, size of queue 54636
+Step 250, size of queue 55131
+Step 251, size of queue 55515
+Step 252, size of queue 56000
+Step 253, size of queue 56367
+Step 254, size of queue 56851
+Step 255, size of queue 57243
+Step 256, size of queue 57748
+Step 257, size of queue 58169
+Step 258, size of queue 58614
+Step 259, size of queue 59063
+Step 260, size of queue 59506
+Step 261, size of queue 59961
+Step 262, size of queue 60420
+Step 263, size of queue 60875
+Step 264, size of queue 61320
+Step 265, size of queue 61830
+Step 266, size of queue 62261
+Step 267, size of queue 62767
+Step 268, size of queue 63165
+Step 269, size of queue 63659
+Step 270, size of queue 64103
+Step 271, size of queue 64634
+Step 272, size of queue 65027
+Step 273, size of queue 65558
+Step 274, size of queue 65950
+Step 275, size of queue 66507
+Step 276, size of queue 66941
+Step 277, size of queue 67490
+Step 278, size of queue 67875
+Step 279, size of queue 68406
+Step 280, size of queue 68806
+Step 281, size of queue 69396
+Step 282, size of queue 69789
+Step 283, size of queue 70390
+Step 284, size of queue 70770
+Step 285, size of queue 71363
+Step 286, size of queue 71741
+Step 287, size of queue 72381
+Step 288, size of queue 72745
+Step 289, size of queue 73383
+Step 290, size of queue 73754
+Step 291, size of queue 74360
+Step 292, size of queue 74752
+Step 293, size of queue 75405
+Step 294, size of queue 75769
+Step 295, size of queue 76453
+Step 296, size of queue 76789
+Step 297, size of queue 77498
+Step 298, size of queue 77838
+Step 299, size of queue 78551
+Step 300, size of queue 78876
+Step 301, size of queue 79592
+Step 302, size of queue 79906
+Step 303, size of queue 80632
+Step 304, size of queue 80976
+Step 305, size of queue 81652
+Step 306, size of queue 82039
+Step 307, size of queue 82703
+Step 308, size of queue 83047
+Step 309, size of queue 83748
+Step 310, size of queue 84109
+Step 311, size of queue 84830
+Step 312, size of queue 85171
+Step 313, size of queue 85903
+Step 314, size of queue 86261
+Step 315, size of queue 87007
+Step 316, size of queue 87331
+Step 317, size of queue 88058
+Step 318, size of queue 88395
+Step 319, size of queue 89119
+Step 320, size of queue 89518
+Step 321, size of queue 90261
+Step 322, size of queue 90616
+Step 323, size of queue 91479
+Step 324, size of queue 91921
+Step 325, size of queue 92818
+Step 326, size of queue 93252
+Step 327, size of queue 94134
+Step 328, size of queue 94568
+Step 329, size of queue 95454
+Step 330, size of queue 95778
+Step 331, size of queue 96564
+Step 332, size of queue 96916
+Step 333, size of queue 97712
+Step 334, size of queue 98074
+Step 335, size of queue 98880
+Step 336, size of queue 99208
+Step 337, size of queue 100000
+Step 338, size of queue 100326
+Step 339, size of queue 101158
+Step 340, size of queue 101494
+Step 341, size of queue 102330
+Step 342, size of queue 102692
+Step 343, size of queue 103542
+Step 344, size of queue 103918
+Step 345, size of queue 104684
+Step 346, size of queue 105077
+Step 347, size of queue 105885
+Step 348, size of queue 106290
+Step 349, size of queue 107122
+Step 350, size of queue 107510
+Step 351, size of queue 108353
+Step 352, size of queue 108718
+Step 353, size of queue 109545
+Step 354, size of queue 109930
+Step 355, size of queue 110820
+Step 356, size of queue 111213
+Step 357, size of queue 112052
+Step 358, size of queue 112472
+Step 359, size of queue 113274
+Step 360, size of queue 113739
+Step 361, size of queue 114517
+Step 362, size of queue 114987
+Step 363, size of queue 115777
+Step 364, size of queue 116228
+Step 365, size of queue 117056
+Step 366, size of queue 117544
+Step 367, size of queue 118308
+Step 368, size of queue 118784
+Step 369, size of queue 119566
+Step 370, size of queue 120037
+Step 371, size of queue 120849
+Step 372, size of queue 121340
+Step 373, size of queue 122102
+Step 374, size of queue 122616
+Step 375, size of queue 123343
+Step 376, size of queue 123893
+Step 377, size of queue 124689
+Step 378, size of queue 125220
+Step 379, size of queue 126000
+Step 380, size of queue 126566
+Step 381, size of queue 127317
+Step 382, size of queue 127901
+Step 383, size of queue 128635
+Step 384, size of queue 129193
+Step 385, size of queue 129924
+Step 386, size of queue 130517
+Step 387, size of queue 131279
+Step 388, size of queue 131914
+Step 389, size of queue 132583
+Step 390, size of queue 133258
+Step 391, size of queue 133923
+Step 392, size of queue 134605
+Step 393, size of queue 135292
+Step 394, size of queue 135973
+Step 395, size of queue 136637
+Step 396, size of queue 137398
+Step 397, size of queue 138039
+Step 398, size of queue 138793
+Step 399, size of queue 139383
+Step 400, size of queue 140118
+Step 401, size of queue 140775
+Step 402, size of queue 141563
+Step 403, size of queue 142142
+Step 404, size of queue 142928
+Step 405, size of queue 143504
+Step 406, size of queue 144329
+Step 407, size of queue 144964
+Step 408, size of queue 145775
+Step 409, size of queue 146338
+Step 410, size of queue 147121
+Step 411, size of queue 147700
+Step 412, size of queue 148569
+Step 413, size of queue 149139
+Step 414, size of queue 150020
+Step 415, size of queue 150572
+Step 416, size of queue 151443
+Step 417, size of queue 151989
+Step 418, size of queue 152925
+Step 419, size of queue 153450
+Step 420, size of queue 154378
+Step 421, size of queue 154913
+Step 422, size of queue 155792
+Step 423, size of queue 156357
+Step 424, size of queue 157301
+Step 425, size of queue 157825
+Step 426, size of queue 158811
+Step 427, size of queue 159297
+Step 428, size of queue 160316
+Step 429, size of queue 160805
+Step 430, size of queue 161830
+Step 431, size of queue 162295
+Step 432, size of queue 163322
+Step 433, size of queue 163772
+Step 434, size of queue 164814
+Step 435, size of queue 165304
+Step 436, size of queue 166275
+Step 437, size of queue 166822
+Step 438, size of queue 167774
+Step 439, size of queue 168258
+Step 440, size of queue 169262
+Step 441, size of queue 169769
+Step 442, size of queue 170802
+Step 443, size of queue 171278
+Step 444, size of queue 172323
+Step 445, size of queue 172825
+Step 446, size of queue 173884
+Step 447, size of queue 174336
+Step 448, size of queue 175370
+Step 449, size of queue 175840
+Step 450, size of queue 176869
+Step 451, size of queue 177423
+Step 452, size of queue 178478
+Step 453, size of queue 178971
+Step 454, size of queue 180182
+Step 455, size of queue 180801
+Step 456, size of queue 182058
+Step 457, size of queue 182666
+Step 458, size of queue 183900
+Step 459, size of queue 184506
+Step 460, size of queue 185744
+Step 461, size of queue 186202
+Step 462, size of queue 187288
+Step 463, size of queue 187786
+Step 464, size of queue 188884
+Step 465, size of queue 189393
+Step 466, size of queue 190505
+Step 467, size of queue 190965
+Step 468, size of queue 192059
+Step 469, size of queue 192515
+Step 470, size of queue 193662
+Step 471, size of queue 194132
+Step 472, size of queue 195280
+Step 473, size of queue 195785
+Step 474, size of queue 196951
+Step 475, size of queue 197473
+Step 476, size of queue 198524
+Step 477, size of queue 199072
+Step 478, size of queue 200178
+Step 479, size of queue 200737
+Step 480, size of queue 201877
+Step 481, size of queue 202409
+Step 482, size of queue 203563
+Step 483, size of queue 204065
+Step 484, size of queue 205197
+Step 485, size of queue 205725
+Step 486, size of queue 206941
+Step 487, size of queue 207477
+Step 488, size of queue 208625
+Step 489, size of queue 209198
+Step 490, size of queue 210292
+Step 491, size of queue 210927
+Step 492, size of queue 211985
+Step 493, size of queue 212626
+Step 494, size of queue 213697
+Step 495, size of queue 214313
+Step 496, size of queue 215433
+Step 497, size of queue 216099
+Step 498, size of queue 217130
+Step 499, size of queue 217777
+O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O
+.O.O.O.O.O.O.O.O.##O.O.O.O.O#O.O.#.O.O.O.O.O.O.O.O##.O.O.O.O.O.O.O.O.O.###.O.O#O.O.O.O.O.#.O.#.O#O#O.#.O.O#O.O.O.O##.O.O.O.O.O.O.#.
+O#O.O.O.O.#.O.O.O.O.O#O.O.#.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O#O.O.O.O.O.O.#.O#O.#.O.O.O.#.O#O.O.#.O.O.O.O.#.O.O
+.#.O.O.O.O.O.O.O.O.##O#O.O.O.O.O.O.#.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O#O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.
+O.O.O.O.#.O.#.O.O.O.O.O.O.O#O.O.#.#.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O##.O#O.O#O.O.#.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O
+.O#O.##O.O.O.O.O.O.#.#.O#O.##O.O.O.##O.O.O.O.#.O.O.O.#.O#O.O.O.O#O.O.O.O.O.O.O.#.#.O#O.O##.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.
+O.O#O.O.O.O#O.O.O.O.O#O#O.O.O.O#O.#.O.O.O.#.O.O.O.O.O#O.O.O.O.O.#.O.O.O.O.O.O.O.O#O.O.O.#.O.O.O.O.O.O.O.O.O.O.#.O.O.O.#.O.##O.O#O#O
+.#.O.O#O.O.O.O.O#O.O.O.O.O.O.O.O.O.O#O.O.O.O#O.O.O.#.O#O.O.O.O.O#O.#.O.O.O.O.#.O.O.O.O.O#O.#.O##.O.#.O.O.O.O.##O.O.O.O.O#O.O.O.O.O.
+O.O.O#O.O.O.O.O#O.#.O.O.O#O.O.O.O.O#O.O.O.O.O#O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O##.O.#.O#O.O.O.O.O
+.O##.O.O.O.O.O.O.O#O.O.O.O.O.O.O.#.O.O.O.O#O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.#.O.#.O.O.#.O.O.O.O.O.O#O.###.O.#.O#O.O.#.O.
+O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.#.O.O###O.##O.O.O.O.O.O.O#O##.O.O.##O.O.O.O.O#O#O.O.O.O.#.O#O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O
+.O.O.O.O.#.O#O.O.O#O.O.#.#.#.O.O.O.O.O.O.O.O.O.O#O#O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O#O.O#O.O.O.O.O.O.O.O##.O#O#O.
+O#O.O.##O.O##.O#O.O.O.O.O.O.O.O##.#.O.#.O.O.O.##O.O.O.O.O.O.O#O.#.#.O.O.O#O.O.O.O#O.#.O.O.O.#.#.O.O.O.#.O.O.O#O.O.O#O.O.#.O.#.O.O.O
+.O.O.O.O.O.O.#.O.O.O.O.#.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O##.O.O.#.O.#.O.O.O.O#O.O.##O.O.O.O#O.#.O.O.
+O##.O#O.O.O#O.O.#.O.O.O.O##.O.O.#.#.O.O.O.O.O.O#O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.##O.O.O.#.O.O.O.O.O.O#O.#.O.O.O.O.O.O.##O
+.#.O.O.#.O.O.O.O##.O.O.O.O.O.O.#.O.O##.O.##O.O.O.O.O.O.O.O.O.O.O.O#O.#.O.O.O.O.O.O.O.O.O.##O.O#O.O.O.#.O.O.O.#.O.O.O.O.#.O.O.O.#.O.
+O.O.O#O.O.O.O.O.O.O.O.O.O#O.O#O.#.O.O.O#O.O.#.O.O.O.O.O.O.O.O#O.O.#.O#O.O#O.O.O.O.O.O.O.O.O.O.O.O.#.O.#.O.O.O.O.O.#.#.O.O.O.O.O.O.O
+.O.#.O.O.#.O.O##.O.O.##O.O#O#O.O.O.O.##O.O#O#O.O.O.O.O.O####.O.#.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.#.O.O#O.O.O.O.O.#.#.O.O.O.
+O.O.O.O#O#O.O.#.O.O.#.O.O.O#O.O.O.O.#.O#O.O.O.O.O.O.O.O.O#O.O.#.O.#.##O.O.O.O.O.O.O.O.O.O#O.O##.O.O#O.O.O#O.#.#.O.O.#.O.##O.O.O#O.O
+.O.O.O.##O.##O.#.O.O.#.#.O#O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.#.O.####O.O.O.O.##O#O.O.O.O#O.O.O##.O.O#O.O.O#O#O#O.O.O.O.
+O.#.O.O.O#O.O.O.#.O.O.O.#.O.O.O.#.O.O.O#O.O.O.O.O.O.O.O.O#O###O.O.O.O.O#O.#.O.O.O.O.O.O.O.O.#.O###O#O.O.#.O.O.O#O.O#O.O##.O.O.O.O.O
+.O.O#O.O.O.O#O.O#O.O.#.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.#.#.O#O.#.O.O.#.O.O.O.#.O.O.O.O.O.O.O.O#O.O.O.O.O.O#O.O.O#O.O.O.O#O#O.O.O#O.
+O.O.O#O#O.O.O#O.##O.O.O.O.O.##O#O.O.##O.O.O.O.O.O.O##.O.O.O.O.O.O.O.#.O.O.O.O.O.##O.O.O.O.O.O.O.O.O.#.O.O#O#O.O.O.#.O.O##.O#O.O.O#O
+.O.O#O.O.O#O.O.O.O.O.O.O.O.O.O#O.O#O.O.O.O.O.O#O.O.O.O.O.O.O.O.#.O.O.O#O.#.#.O.O.O.##O.O.O.O.#.O.O.O#O.O#O.O.##O.O.O.O.#.O.O.O.#.O.
+O.O.O.O#O#O.O.O.O#O.O.O.O.O#O.O#O.#.O.O.O.O.O##.O.O.O.O.O.O.O#O.O.#.O.O.O.O.O#O#O.O.#.O.O.O.O.#.O#O.O#O.O.O.O.O.O.O.#.O.O.O.O.#.O.O
+.O.O.#.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O#O.O.O.O###O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O##.O.O.O.O.O#O#O#O.O.O.O.O.
+O.#.O.O###O.O.O.O#O.O.O.O.O.O#O.O#O.O.O.O.O#O.O.O.#.O.O.O.O#O.#.O.O.#.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O#O.#.O.O.O.#.O.O.O.#.#.O.O.##O.O
+.O.O.O.O.O.#.O.O#O.O#O.O.#.O.O.O.O#O.O.O.O#O##.##O.O.O.O.O.O.O.O.O###O#O.O##.O.O#O#O.O.O.O.O.O.O.O.O.O.O.#.O.###.O.O.O.O.O.#.O.O.O.
+O.O.O.O.O.O####.O.O.##O#O.O.#.O.O.O.O.O.O.O.O.O.##O.O.O#O.O#O.#.#.#.O.O.O.O.O.O#O.#.O.O.#.O.O.O.O.#.#.O.##O.O.O.O.O.O.O.O#O.O.O.O#O
+.O.#.O.O.O.#.#.O.O.O.O.O.O.O.O.O.O.O.O.O#O##.O.#.#.O#O.O.#.O.O.O.O#O.O#O.#.O#O.O.O#O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O#O.####O.O#O.O.O.
+O.O.O.O.O.O.O.O.##O.O.O.O#O.O.O#O.O.O.O.O.O#O.#.O.O.O##.O.O.O#O#O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O#O.O.O.O.O.O.#.O.O.O.O
+.O.O.O#O.O.O.O.O.O.#.O.#.O.O.O.O.O.O.O.O.#.O.O.O.#.O.O.O.O.O.#.O.O.O.#.#.O.#.O#O.O.O.O.#.O.O.O.O.O.O.O.#.O.O.#.O.#.O.O.O.#.O.O.O.O.
+O.O.#.O.O#O.O.#.O.O.O#O.#.O.O.O.O.O.O.O.##O.O#O.O.O#O.O.O.O.#.O.O.O.O.O##.O.O.O.O.##O.O.O##.O.O.O.O.O.#.#.#.#.O.O.O.O.O.O.O.O.#.O.O
+.##O.O.O.O.O.O.O.O.O#O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O##.O#O.O.O.O.O.O.O###O.#.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.#.O.O.#.O.O.O.O.O.O.O.
+O.O.O.O.#.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O##.#.O.O.#.#.O.O.#.#.O.O.O#O.O.O.O#O#O#O.O#O.O.O#O.O#O.O.O.O.O.O.O#O.O.O.#.##O##.O#O#O#O
+.O#O.#.O.O.O.O.#.O.O.#.O#O.O.O.O.O#O.O.O.#.#.O.O#O#O.O#O.O#O#O.O.O.O.O.#.O.O.O.#.O.#.O.O.O.#.O.O.O.O.O.O.O.O.O.O##.O.O.O.O.O.O#O.O.
+O.O.O.#.O.O#O#O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.#.O.O.#.O#O.O#O.O.O.O.#.O#O#O.O.O.O.O.O.O.O.O.O#O#O.O.O.O.O.O.O.O.O.O.O#O##.O.O.O.O.O.O
+.O.O.O.O.O.O.O#O.#.O.O.O.O.O.O.O#O.O##.O.O.#.#.#.#.O#O.O.O#O.O.O.O.O###O.O.O.#.O.O.O.O.O.O#O.O.##O.O.O.O.O.O.O##.O#O.#.O##.O.O.O.#.
+O.O.O#O.O#O#O.O.O.#.O.O.O.O.O.O#O.#.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O.O#O.#.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O
+.O.O.O.O#O.#.O#O.O.O.O.O.O.O.O.O.O.#.O.O#O#O.O.O.O.O.O.O#O.O.#.O.O.O.O.O#O.O.O.O.O.O#O#O.O#O#O.O.O.#.O.O.O.O.O.O.O##.O.O.##O.O.O#O.
+O.O.O##.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O###O.O.O.O.#.##O.O#O#O.#.#.O.#.O.O.O.O.O.O.O.#.O.#.O#O.O#O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O
+.O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.#.#.O.O#.#O.O.O.O.O.O##.O.O#O#O.#.O.O.O.O.O.O.O#O.O.#.O.O.O.O.O.O.#.O.O.O.O.O.O.O#O.O.#.O#O.O.O.O.O.
+O.O.#.O.#.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.#.O.O.#.O.O#O.O.#.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O#O.O.O#O.#.O.#.O.O
+.O.O.O.#.O.O#O#O.O.O.O.O.O#O.O.#.O.O.O.#.O.O###O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.#.O.O.O.#.O#O.O.O.O##.#.O.O.O.O.O#O.O.#.O.O.O.O.O.O.
+O.O.##O.O#O.O.#.#.O.O.O.O.O###O.O.O.O.O.O.O.O.O#O.#.O.O.##O.O.O.O.O#O.O.O.O.O.O#O.O#O.O.#.O.O.O.O.O#O.O.#.O.O.O.O.O.#.O##.O.O.O.O.O
+.O.O.O.O.#.O.O.O.O.O.O.O#O.##O.O.O.#.#.O.O.O.O.#.O.O.O.#.O.O#O.O#O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O#O.#.O.O.O.O.O.#.O#O.O.O.O.O.O.
+O.#.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O#O.O.O.O.O#O.O.#.O.O.O.O##.O.O.#.O.O.O.O.O.O.O.#.O.O.O#O.O#O##.O#O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O#O
+.O#O.O.#.O.O.O.O.O.O.O.O.#.O.O.O#O.O##.#.O.O.O.O.O.O.O#O.##O.O#O#O.O.O#O.O.O.O.##O.O.O.O.O###O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.#.
+O.O.#.O.O.O.O.O.O.O.O.O#O.O.#.O#O.O#O.O.O.O.O.O.O.O.O.O.#.#.O.O.O.O.O.O##.O#O#O.#.O.O#O.#.#.O.O.O#O.#.O.O.O#O.O.O.O.O.O.O.O##.O.#.O
+.O.O.O.O.#.O.O.O.O.O#O.O.O.O#O.O##.O.O.#.#.O.O.O.O.O.O.O#O.O.#.O#O#O.O.#.O.O.##O.O.O##.O.O.O.O.O.#.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.
+O.O.O.O.O#O#O.O.O.O.O#O.O.#.O.O.O.O.#.#.O.O.O.O.O.O.##O#O#O.O.O#O.O#O.O.O.O#O.O.#.O.O#O##.O.O.#.O.O.O.##O#O#O.O#O.O.O.O.O.O#O#O.O#O
+.O.O.O.O.O#O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O##.O.O.O.#.#.O.#.O.O.O.#.O.O.O.O.O.O.O.O.O.#.O#O.O.O.
+O#O.O.O.O#O.O.O.O.O.O.#.#.O#O.O.O.O.O.O#O.O.O.O.O.O.O.#.O##.O.O.O.O.O.O.O.#.O.#.O#O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.#.O
+.O.#.O.O.O.O.O.O.#.O.#.O.O.O.O#O#O.#.O.O.#.O.O.##O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O#O.O.O.O.O.O.O.#.O.O.#.O.O.O#O.O.O.O.O.O.O.##O.O.O.
+O.O.O.O#O.O.O.O.O.O.O.O.O.#.O.O.O#O#O.#.O.O.O.O.O.O#O.O.O.O#O.#.O.O.O.O.#.O#O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.##O#O#O#O#O.O.O.O.O.O.O#O
+.O.#.##O.O.O.O.O.O#O.O.O#O.O.O.#.O.#.O#O.O#O.O.O.O.#.O.O.#.O.O#O.O.O#O.O.#.O.O.O.O.#.O.O.O.O.O#O#O.O.O.O#O.O.O#O.O#O.O.O.O.O.O.O.O.
+O.O.O#O.O.O.O#O#O.O.O.O.O.O.O.O#O.##O.O#O#.#O.O.#.O.O.O.O.O.O.O.O.#.O.O.O.O.O.#.#.O#O.#.O.O.O.O.O#O.##O##.O#O.O.#.O.#.O.O.O.O.O.O.O
+.#.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.##O.O.O#O.O.O.#.O.O.O.O.O##.O.O.O.O.O.#.O.O.O.O#O.O.O.O.O.O.O.#.O.O.##O.O.#.O.O.O.#.O.O.O.O.#.O.
+O.O#O.O.O.O.#.O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.#.O.O.O.O.O.O#O.O.O.O.#.#.O.O.O.O.#.#.O.O.O.O.O#O.O.O.O.O#O
+.O.O.O.O.O.O.##O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.#.O.O.#.O.O.#.O.O.O.##O.O.O#O.O.O#O#O#O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O##.
+O.O.O.O.O.#.O.O.O.#.O.O.O#O.#.##O.O.O.O#O.O.O.O.O#O.#.O.O.O#O#O.O.O.O.O.O.O.#.O.O#O.O.O.O.#.O#O.O#O.#.O.O.O.O.O.O.O.O#O.O#O.O.O.O.O
+.O.O.O.O##.O.O.O.O#O.O#O.O.O#O.O.O.O.O.O.O.O##.O.O.O.O.O#O.O.O.O.O.O.O.O.O.#.#.O.O##.O#O.O.#.O.O#O#O.O.O.O.#.##O.O.O.#.O##.O.O.O.O.
+O.O.O.O###O.O.O.#.O.#.O.#.O.O.O.O.O.O.O.O.O.O#O.O.O.O#O.O.O.O.O.O.O.O#O.#.O.O.O##.O#O.O.O.O.O.O#O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O
+.O.O.O.O.#.O.O.O.O.O.O.O.O#O.O.O.#.O.O.O.O.O.O.O.O####.O#O.O#O.O#O.O.O#O.O.O.O.O.O.O.O.O.O#O#O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.
+O.O.O.O.O.O.#.O.O#O.O.O.O.O.O.O.O#O#O.#.O.O.O.#.O.O.O.O.O#O.O.O.#.##O.O.#.O.O.O.#.#.O.O.O.O.O#O.O.O.O.#.O.O##.O.O.#.O#O.O.O.O.O.O.O
+.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.
+O.O.O.O.O.O.O.O.#.#.O.O.#.O.O.O#O##.#.O.O.O#O.O.O.O.O.O#O.O.#.O.O.O.O#O.O.#.O.O.O.#.O.O##.O.O.O.O.O.O.O.O.O#O.O.O#O.O.O.O##.O.O.O.O
+.O.O.O#O.#.O.O.O.O##.#.#.O#O.O.O.O.O#O.O.O.#.O.O#O#O.O.O##.O.O.#.O.O.O.#.O.O.O.O.#.#.O.#.O.O.O.O.O.O.O.O.O#O.O.##O.O.O.O.O.#.O.O.O.
+O.O.O.O.O.O#O.O.O.O.O.O.#.O.O.O.#.O.O.O.O.O.O.#.#.#.O.O.O.O.O.#.O.O.O.O#O.#.O.O.O.O.O.#.O#O#O.O.O.#.#.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O
+.O.O.O.O.O.O.O.O.#.O.O.#.O##.O#O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O#O.#.O#O.O#O.O.O.#.O.O.O.O.O.O#O.O.O.O.#.O.O#O.O.O.O.O.
+O.O.O.O.O.O#O.O#O.#.O.O.O.O.O.O.O.O.O.O#O.O.O.#.O.O.O.#.O.O.O.O#O.#.#.#.O.O.O#O.O.O.#.O.O.O.O.O.O.O.O.O.O.#.O.O.O.#.O.O.O#O.O.O.O.O
+.O.O.O.O.O.O.#.O.O#O.O#O.O.O.O.O.O.O.O.O.O#O#O.O.#.O.O#O.O#O.O.O.O.O.O.#.O.O#O.O.O.O.O.O.##O.O.O.O.O.O.O.O.O.O#O.O.O.O#O.O.O.O.O.O.
+O.O.O.O.O.O.O.O.#.O.O#O.###.O.O.##O.O.#.O.O.O.O#O.O.O.O.O.O.O.O.O.#.O.O.##O.O.O.O#O.O.O.O.O#O.#.O.O.O.#.O.O.O#O.O.O.O#O#O.O.O.O.O.O
+.O.#.O.O.O.O.O.O.#.O#O.O.O.O.#.O.O.O.O.O.O.O.O#O.O#O#O#O.O.O#O#O#O#O.##O.O.O.O#O#O.O.O.O.O.O.O.O.O.#.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.
+O.#.O.O.O.O.O.##O.#.O.O#O.O.O#O#O.O.O.O.O.O.O#O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.#.O.O.O.O.O#O#O.#.O.O.O.O.O.O.O.O.O
+.O#O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O.#.O#O.O.O#O.O.O.O.O.O.#.O#O.O##.#.O.O.O.O.#.O#O#O#O.O.O.O.O.O.O.O.O#O.
+O.O.O.O.O.O.O.O#O.O.O.O.O.O#O.#.O.O#O.#.#.O.O.O#O.O.O.O.O.##O.#.O.#.#.O.##O.O##.O.O.#.O.#.O.#.O.O.O.O#O#O.O.O.O.O.O#O.O.O.O.O.#.#.O
+.O.O.O#O.O.O.O.O.O.O.O.#.#.O.O.#.O.O.O.O.O.O.O.O.#.O#O.#.O.O.O.O.O.O.O#O.O.O.O.#.O.O.O.O.O.O.O#O#O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.
+O.O.O.O.O.O.O.O.O.#.O.O.#.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O##.O.O.O.O.O.O.O#O.O#O.O.O.O#O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.#.O
+.#.O.#.O#O.O.O.O.O.O.O##.###.O#O.#.O#O#O.O.O#O.O.O.O###O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O#O.O.O.#.O.O.O.O#O.#.O.O.O.O.O.O#O.O.#.O.
+O.O.O.#.O.O.O.O.O.O#O.O#O#O.#.#.O##.O.O.O.O.O#O.O.#.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O#O#O.##O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O
+.O.O.O.O.O.#.O.O.O.O.O.#.O.O.O.#.O.O.O#O.O.O.O#O.O.O.O.O.#.O##.O.O.O.#.O.O.O.O#O.O.O.O.O.O.O##.O.O##.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.
+O.O.O.O.O.O.O.O.O.O.O.#.O.O.#.#.#.O.O##.O.O.O.O.O##.O.O.O.O.O.O.O.O.O.O.O.O#O.O.#.O.O.O.O.##O.##O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O
+.O.O.O.O.#.O.#.O.O.O.O#O.O#O.O.O.O.O.O.O.O.O.O.O#O.O.O#O.O.O.O.#.O.O.O.O.O.O.##O.O.O.O.#.#.#.O.O.O.#.O.O.O.##O.O.O.O.O.O.O.O.O.O.#.
+O#O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.#.O#O.O.#.O.O.O.O#O.#.#.O.O##.O.O.O.O#O.O.#.O#O.O.#.##O.O#O.O.O.O.#.O.O#O.O.O.O.O.O#O.O.O.#.O.O
+.#.O.#.O#O.O.#.O.O.O.O.O#O.O.#.O#O.##O#O.O.#.O.O.O.O.O.O.O.O.##O.O#O.O.O.O.O.O.O.O.O.O.O.#.O.#.O#O.O.O.O.O.O.O.O.O.O.#.#.O.O.O.O.O.
+O#O.O#O.O###O.O.O.O.O.O.O.O#O.O.O.##O.O.#.#.O.O.O.O.O.O.##O.#.##O.O.O.O.O#O.O.###.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O
+.O.O#O.O.O###O.O.O.O.O.O.O.O.#.O.O.O.#.O.O.O.O#O.O.O.O.O#O.O.O.O#O.##O.O.O.O.O.O.O.O.O.O.O.O##.O.O.#.O.O.O.O.O.O.O.O#O.#.O.O.O.O.O.
+O.O.O.O.O.O.O.O.O.##O.O.O.O.O#O.O.O.O.O#O.O.O.O.O.#.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.#.O.O.#.O#O.#.O.O.O.O.O.O.#.O.O.O.O.O.O#O
+.O#O.O.O#O.O.O.O.O.##O.O.O.O.O.O#O.O#O.O.O###O.O.O.O.#.#.#.O.O.##O.#.O.O#O.#.O.O.O.#.O.O.O##.O#O.O.O.O.O.O.O.O.O.O.O.#.O#O#O.O.#.O.
+O.O.##O##.O.O.O.O.O.O.O.O.O.O##.O.O.###.O.O.O.O.O.O#O.O.O.O.O.#.O.O.O.O.O##.O.O.O.O.O.#.O.O.O.O#O##.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O
+.O.O.O#O#O.#.O.O.#.O.O.O.O.O.O.O.O.O.O#O.#.O.###.#.O.O.O.O#O.O.#.O.O.O.O.#.O.O.##O.O.O.O.O.O.O.O.O#O#O.O.O.O.O.#.#.O.O.O.O.O.O.O#O.
+O#O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.#.O.#.O.O.O#O.#.O#O.O.O.O#O#O.#.O.O.O.O#O.##O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O
+.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O##.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.#.O.O.O.O.O.O#O#O.O.O.O.O.O.O.##O.O.O#O.O.O.#.O.
+O.O.O.O.O.O.O.O.O#O.O.#.O#O.O.O.O.O#O.##O#O.O##.O.O.O#O.O.O.O#O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O#O#O.O.O.#.O.O.O.#.O.O#O.O
+.O#O.#.##O.O.O#O.O.O.O.O.O.O.O.O.O.O##..#O.##O.#.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.
+O.O.O.O.#.O.O.O.##O.O#O.O#O#O.O.O.O.O.##O.O.O.O##.O.#.O.O#O.O.O#O.O.O.O.O.O.O.##O.O.#.O#O.O.O.O.O.O.O.O.O.O.O#O.O.O#O.#.O##.O#O#O.O
+.O.O.O.O.O.O.#.#.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O#O.O.O.O.O#O.#.O.O.O.O.O#O#O.##O.O.O.O.O#O.##O.O#O.O#O.O##.O.#.O.O.O.
+O.#.O.O.O.O.O.#.O.O.O.O.O.O.O#O.O.O.O.#.O.O.O.#.#.O#O.O.O.O.O.O.#.O.#.O.O#O.O.O#O.O.O.O.#.O.O.O.O.O.O.O#O.O.O.O.#.O.O.#.O.O.O.O.O.O
+.O.O.O.O.O.O.#.O.#.O.O.O#O.O.O#O.O.O.O#O.#.O.O#O.O.O#O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O#O.#.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.
+O.O.O.O.#.O.#.O.O#O#O.O#O#O.O.O.O.O.O.O.O.O.#.O.O##.O#O.#.O#O.#.O.O#O.O.O.O.O.O#O#O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O#O#O#O.O.O.O.O#O
+.O.O.#.O.O.O.O.O.O.#.O#O.O.O.#.O#O.O.O.O.#.O.O.O.O#O##.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O#O.O.#.O.O.O.##O#O.O.O.
+O.O.#.##O.O.O.O.O.#.O.O###O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.##O.O.O.O.O.O.O.O#O.O.O.O.O.O#O.O.O.O.O.O.O.O##.O.O.O.O.O.O.O.O#O.O#O.O
+.#.O.#.O.O##.O##.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O#O#O.#.O.O.#.O.O.#.O.#.O.O.O.O.O.#.O#O.O.O.O.#.O#O.O.O#O.O.O.O.O.
+O.#.##O.#.O.O.O#O.O#O#O.O.#.O.O.O.O.O.O.O.O#O.O.O.O.O.O#O.O.O.O.O.#.O#O#O.O#O.O.O.O.#.O.O.O.O.O.O#O.O.#.O.O.O.O#O.O.O.O.O#O.O.O.O.O
+.O.O.O.O.O.#.O.O.#.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O##.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O#O.O.#.O.O.O.
+O.O.O#O.O#O.O.O#O.O.O.O.O.O.#.O.O.O.O.O.O.O.O.#.O.O.O#O.O#O#O.O.O.O.O.O.#.O.O.O#O.O.O.O.O.O.O.O.O.O.#.O#O.O.O.O.O.O.O.O.O.O.#.O.O.O
+.O.#.#.O.O.O#O.O.O.O#O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.#.O.O.#.O.O.O.O#O#O#O.O.O.O.O.#.O.O.O.O.O##.O.O.O.O.O.O.O#O.O.O#O.O.O.O.O.O.O.#.
+O.O#O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O#O.O.O#O.O.O.O.#.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O#O.#.O.O#O.O.O.O
+.O.O.O.O#O.O.O.O.O.O.#.O#O.O.O.O.O.O.O.O.O.O.O.O.O.###.O#O.O.O.O.O.O.O#O.#.O.O.##O.O.O.O.O.#.O#O.##O.O.#.O.O.O.O#O.O.O.O#O.O.O.O.O.
+O.O#O.#.O.O.#.O.O#O.O.O.O.O#O.O#O#O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O#O.O#O.O.O##.O.O.O.O.O#O#O.O.O.O#O.O.O.O.O.O.##O.O.##O.O.O.O.O#O
+.#.O#O.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.##O.O.O.##O.#.O.O.O.O#O.#.O.#.O.O.O.O.O.O.O.O.O.##O.O.O.O.O.##O#O.#.O.O.#.##O.O.
+O###O.O.#.O.O.#.O.O.O.O.O.O.O.O.O.#.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O#O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.##O#O.O#O.O.O.#.O.O.#.O.O.O#O#O
+.O.O.O#O.O.O.O.O.O.O.O.O.O.O#O#O.O.O#O.#.O.O.O.O.O.O#O.O.O.O.#.O.O.O.O#O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.##O#O.O.O.O.#.O.O.O.O.O.O.O.
+O.O#O.#.O.O.O.O#O.O.O.O.O.O.O.#.O.O.O.O.O#O.O.O.O.O.O.O.O.#.O.#.O.O.O##.#.##O.O.O.O.O.#.O.O.O.O.O.O.O.O.O.O#O.O.#.O.#.O.#.O.O.O.O.O
+.#.O.O.O.O.O.O.##O#O.#.O.O.O.O.##O.###.O##.O#O.O.O.O.O#O.##O.O.O.O.O.O.O.O.O#O.O.O.O.O#O.O.O.O.#.O.O.O.O.O.O.O#O.O.O.O####.O#O.#.O.
+O.#.O.O.#.O.O.O.O.O.O.O#O.O.O.O.O.O.#.O#O.O#O.O.O.O.O.O.O.O.O#O.O.O.#.O.O.O.O.O.O.O.#.O.#.O.O.#.O.O.#.O#O#O.O##.O#O.O.O#O.O.O.O#O.O
+.O.O##.O.O.O#O.O.O.O.O.O.O.#.O.O#O#O.O.###.O.O#O.O.O.O.O.O.O#O#O.O.O####.#.O.O.O.O.O#O#O.O.O.O.O.O.O.O#O.O.O.####O.O.O#O.O.O.O.#.O.
+O.O.#.O.O.O.O.O.O.O.O#O.O.O.O.O.O.O#O.O#O.#.O##.O.O.O.O.O.#.O.O.O.O.O.#.#.O.O.O.O.O#O.O.O.O.O#O.#.O.O#O.#.O.O.O.O.O.O.O.O.O.O.O#O.O
+.O.O#O.#.O.O.O.#.O#O#O.#.O.O.O.O.O.O.O.#.O#O.O.O.#.O.O.O.O#O.O.O.O.O.O.O#O.O.O.O.O.O#O.O.##O.O.O.O.#.#.O.#.#.O.O#O.O.O.O.#.##O##.O.
+O#O.O.O.O.O.#.O.O.O.O.O.O.O#O#O.O.O.O.O.O.#.O.O.O.#.O.O.O.O.O.O.O.O.O.O#O.O.O.O.#.O.O.O.O.O.O.#.O.O.##O.#.O#O.#.O##.O.O.O.O.O.O.O.O
+.O.O.O.O.O.O#O.O.O.O.O.O.#.O.#.O.O.O.#.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.#.O.O.O.O.O#O.O.O.O.O.O.O.O.O.O#O.#.O.
+O.#.#.O#O.O.O.O.O.O.#.#.O#O.O.O.#.O.O#O.O.O.O.#.O#O.O.O.O.O.O.O.O.O#O.O.O.O.O#O#O#O.##O.O.O.#.#.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O.O
+.O.O.O.O.O.O.O.O.#.O#O.#.O.O.O.#.O.O.O#O.#.O.O.O.#.O.O#O.O.O.O#O.O.O.O.O.O.O.O.O#O#O.O#O.O.O.O.O.O#O.O.O.O.O.O.O.O.O.#.O#O.O.O.O.#.
+O.O.#.O.O.O.#.O.O.O#O.O.O.#.O.O.O.O.##O#O.O.#.O##.O.#.O.O.O.O.O.O.O.O.O.O.O.O.#.O.#.O.##O.###.O.O.O.#.O.O##.O.O.O.O##.#.O.O#O#O.O.O
+.O.O.O.#.O.O.#.O.O.O#O.O.O.O.O.O.O.O.O.O.O#O.O.O.O.O.#.O#O.O.O.O#O.O.O.O.O.O.O.O.O.O.#.O.O.O.O.O.O.O#O.O.#.O.#.#.O#O.O.O.O.#.#.O#O.
+O.O.O.O.O.O.O##.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.#.O#O.O.O.O.O.O.O.O.O.O.O.O.O.#.O#O#O.O.O#O##.O.O.O.O.#.O#O.O.O.O.#.O.O#O.O.O.##O.O.O
+.O.O.O.O.O##.O.O.O.O.O.O#O#O.O.O.O.O.O#O#O.O.O.O.O.O.O.#.O#O.O.O.O.O.O.O.O.#.O#O#O.O#O.#.O.O.O.O.O.O#O.#.O.O.O#O.O.O#O.O.O#O.O.#.#.
+O##.#.O#O.O.O.##O.O.O.#.O.O.O.O#O.#.#.O.O.O#O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.####O.##O##.O.O.O.O.O.O.#.O.O.O#O.O.O.O.O.O.O.#.O.O.O.O.O
+.O.O.O.#.O.O.#.O.O.O#O.#.O.O.O.O.O.O#O.O.O.O.O.O#O.O.O###O.O.O.O.O.O.O.O.O#O.O#O#O.O.#.O.O.O.O.O.##O.O.O.O#O#O.O##.O.O.O.O.#.O.O#O.
+O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O
+Result part 1:  217777
+--- 115.5758330821991 seconds ---

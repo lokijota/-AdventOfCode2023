@@ -66,21 +66,33 @@ def calculate_possible_moves(map):
 
             next_positions[ht_key] = []
 
+            # note: there's never stones in the edges, so some of the tests below (namely when it goes around the edges) could be simplified
+            # but this is called only once, so just leaving it like this (defensive programming habits?). I may remove when the challenge is
+            # eventually finished
+
             # left
             if col_index>0 and map[row_index][col_index-1] == ".":
                 next_positions[ht_key].append((row_index, col_index-1))
+            elif col_index == 0 and map[row_index][ncols-1] == ".": # check the right side...
+                next_positions[ht_key].append((row_index, -1)) # and move outside the center map
 
             # right
             if col_index<ncols-1 and map[row_index][col_index+1] == ".":
                 next_positions[ht_key].append((row_index, col_index+1))
+            elif col_index == ncols-1 and map[row_index][0] == ".": # go around to the first column
+                next_positions[ht_key].append((row_index, ncols)) # move to the right of the map
 
             # up
             if row_index>0 and map[row_index-1][col_index] == ".":
                 next_positions[ht_key].append((row_index-1, col_index))
+            elif row_index == 0 and map[nrows-1][col_index] == ".":
+                next_positions[ht_key].append((-1, col_index))
 
             # down
             if row_index<nrows-1 and map[row_index+1][col_index] == ".":
                 next_positions[ht_key].append((row_index+1, col_index))
+            elif row_index==nrows-1 and map[0][col_index] == ".":
+                next_positions[ht_key].append((nrows, col_index))
 
             # print(next_positions[ht_key])
 
@@ -123,8 +135,6 @@ nrows = len(map)
 ncols = len(map[0])
 
 
-
-
 # global variables
 result = 0
 next_positions_ht = calculate_possible_moves(map)
@@ -138,27 +148,36 @@ positions_to_explore_queue = deque()
 positions_to_explore_queue.append(sPos)
 pos_after_step = set()
 
-for nstep in range(0, 64):
+for nstep in range(0, 20):
 
     pos_after_step.clear()
 
     while len(positions_to_explore_queue) > 0:
-        pos = positions_to_explore_queue.popleft()
+        ht_key = positions_to_explore_queue.popleft()
 
-        ht_key = pos
+        shift_rows = ht_key[0]//131
+        shift_cols = ht_key[1]//131
+        [pos_after_step.add((p[0]+shift_rows*131, p[1]+shift_cols*131)) for p in next_positions_ht[(ht_key[0]%131, ht_key[1]%131)]]
+        # [pos_after_step.add(p) for p in next_positions_ht[(ht_key[0]%nrows, ht_key[1]%ncols)]]
 
-        [pos_after_step.add(p) for p in next_positions_ht[ht_key]]
+        # central_square_next_positions = next_positions_ht[(ht_key[0]%nrows, ht_key[1]%ncols)]
+        # for central_square_next_pos in central_square_next_positions:
+            
+        #     if central_square_next_pos[0] < 0:
+
+
+
     
     # now that we have finished exploring the step, we add everything that is in the set into the queue
     for pas in pos_after_step:
         positions_to_explore_queue.append(pas)
     
     # print(pos_after_step)
-    print(f"Size of queue {len(positions_to_explore_queue)}")
+    print(f"Step {nstep}, size of queue {len(positions_to_explore_queue)}")
 
 
 
-# print_as_map(map, positions_to_explore_queue)
+print_as_map(map, positions_to_explore_queue)
 
 
 print("Result part 1: ", len(positions_to_explore_queue))
@@ -166,11 +185,11 @@ print("--- %s seconds ---" % (time.time() - start_time))
 
 # part 2
 
-inner_stones = print_as_map_inner_rocks_replace(map, positions_to_explore_queue, 64, (64,64))
+# inner_stones = print_as_map_inner_rocks_replace(map, positions_to_explore_queue, 64, (64,64))
 
-print(f"Area of 64 is", calculate_area_of_O(64))
-print(f"Stones inside", inner_stones)
-print("delta:", calculate_area_of_O(64) - inner_stones)
+# print(f"Area of 64 is", calculate_area_of_O(64))
+# print(f"Stones inside", inner_stones)
+# print("delta:", calculate_area_of_O(64) - inner_stones)
 # isto n está certo. preciso de contar apenas os # que estejam overlapping com 0...
 
 
