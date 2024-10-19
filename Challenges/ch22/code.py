@@ -57,13 +57,25 @@ cubes = set()
 
 ## 02. start with the block with lowest z-start / if z-start = 1 it's in final position, thus move to the processed list and break down the cubes
 
-def check_drop_possible(blocks):
+def check_drop_possible(blocks, index_to_skip):
     """Check if it's possible to drop at least one position. Note that z is 0-based, not 1-based as in AOC challenge page"""
 
     cubes = set()
+    the_removed_block = blocks[index_to_skip]
 
+    current_index = -1
     while len(blocks) > 0:
+        current_index += 1
         head, blocks = blocks[0], blocks[1:]
+
+        if index_to_skip == current_index:
+            continue
+
+        # this optimization reduces time from 20.5 secs to 12.5 secs -- if it's +1 above the top of the removed block, skip the rest. 
+        # the effect is less and less as the height increases as we still process the entire base
+        if head[0][2] > the_removed_block[1][2]+1:
+            return False
+        
 
         # we're at the bottom already
         if head[0][2] == 0:
@@ -83,16 +95,21 @@ def check_drop_possible(blocks):
 
     return False
 
+break_block_cache = dict()
 def break_block_to_cubes(block):
     """Decompose a 'tetris piece' in its component cubes and return the respective tuples in a set"""
+    """Using the ht yields a 3 second improvement of the 24 total to 21"""
+
+    if block in break_block_cache:
+        return break_block_cache[block]
 
     broken_block = set()
-
     for x in range(block[0][0], block[1][0] +1):
         for y in range(block[0][1], block[1][1] +1):
             for z in range(block[0][2], block[1][2] +1):
                 broken_block.add( (x,y,z))
  
+    break_block_cache[block] = broken_block
     return broken_block
 
 def generate_plot(blocks):
@@ -212,20 +229,22 @@ while len(blocks) > 0:
 # generate_plot(processed)
 
 ## 03. Now that we've dropped the pieces, let's remove one of the blocks/bricks of the collection one at a time, and see if we can drop without it
+# let's sort again, which will allow us to optimize the drop check
+processed.sort(key=lambda tup: tup[0][2])  # sorts in place
 
 result = 0
 for j in tqdm(range(0, len(processed))):
 
-    # note: I'm sure this could be more efficient
+    # note: I'm sure this could be more efficient: check only blocks above the one that is at position j
 
-    removed_block = processed.pop(j) # O(n) complexity
-    if not check_drop_possible(processed):
+    # removed_block = processed.pop(j) # O(n) complexity
+    if not check_drop_possible(processed, j):
         result += 1
         # print(f"Block {j} can be disintegrated (doesn't causes drops)")
     # else:
     #     print(f"Block {j} can't be disintegrated (causes drops)")
     
-    processed.insert(j, removed_block) # O(n) complexity
+    # processed.insert(j, removed_block) # O(n) complexity
 
 print(f"Result part 1: {result}")
 print("--- %s seconds ---" % (time.time() - start_time))
