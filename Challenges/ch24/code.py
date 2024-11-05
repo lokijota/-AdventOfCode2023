@@ -86,6 +86,7 @@ y = 19 - t
 
 lines = []
 
+print("Creation equations of the line, for each equation...")
 for hailstone in hailstones:
 	# movement equations
 	eq_x = parse_expr(f"{hailstone[0]} + {hailstone[3]}*t -x")
@@ -112,10 +113,12 @@ result = 0
 queue = lines
 results = []
 
+print("Try all the combinations and solve the equations")
 while len(queue) > 0:
 	le1 = queue[0]
 	queue = queue[1:]     
 
+	# try to solve the head equation vs all the remaining ones in the queue
 	for le2 in queue:
 
 		# need to call this to reset x/y or it won't solve equations
@@ -128,12 +131,14 @@ while len(queue) > 0:
 			sol_x = sol.args[0][0]
 			sol_y = sol.args[0][1]
 
+			# check if the solution is in the boundaries for the problem
 			if sol_x >= min_boundary and sol_x <= max_boundary and sol_y >= min_boundary and sol_y <= max_boundary:
 
 				# print(le1[1].subs(x, sol_x), " / ",  le2[1].subs(x, sol_x))
+				# if I remember correctly from all the way back just two weeks ago, this is to check if the cross is in the future for both lines
 				if le1[1].subs(x, sol_x) >= 0 and le2[1].subs(x, sol_x) >= 0:
 					result += 1
-					print(".", end="")
+					# print(".", end="")
 					# print("Sol in Square: ", sol_x, sol_y)
 
 print(f"Result part 1: {result}")
@@ -142,7 +147,12 @@ print("--- %s seconds ---" % (time.time() - start_time))
 # Result part 1: 11995
 # --- 10.869709253311157 seconds ---
 
-## part 2
+## part 2 
+
+# https://math.stackexchange.com/questions/607348/line-intersecting-three-or-four-given-lines
+# Your GeoGebra project helped me to better understand the structure of the problem and that 4 trajectories are sufficient to find the solution" 
+# pg143/299 https://upload.wikimedia.org/wikipedia/commons/5/54/Analytic_geometry_of_space_%28IA_analygeomspace00snydrich%29.pdf 
+# https://www.quora.com/Given-four-skew-lines-how-many-lines-intersect-all-of-them
 
 # input("*********** Press Enter to continue... **********")
 # start_time = time.time()
