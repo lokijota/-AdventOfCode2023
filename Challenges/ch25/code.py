@@ -54,6 +54,7 @@ def count_graphs(graph):
     all_nodes = set(graph.keys())
     visited = set()
     num_graphs = 0
+    graph_sizes = []
 
     # while there are unvisited notes, visit all the nodes in a "subgraph"
     while len(all_nodes) > 0:
@@ -76,12 +77,36 @@ def count_graphs(graph):
 
         all_nodes = all_nodes - visited
         num_graphs += 1
+        graph_sizes.append( len(graph.keys()) - sum(graph_sizes) - len(all_nodes))
+
+        if num_graphs == 3: # bad result let's exit already
+            return 3, [0, 0, 0]
 
     # if there are nodes that still haven't been visited, the while loop at the top will run
     # for the second graph and so on
 
     # print(f"Num graphs= {num_graphs}")
-    return num_graphs
+    return num_graphs, graph_sizes
+
+def cut_vertex(graph, vertex):
+    """ Remove a vertex from the graph """
+
+    # should never happen
+    if vertex[0] not in graph or vertex[1] not in graph:
+        return graph
+    
+    graph[vertex[0]].discard(vertex[1])
+    graph[vertex[1]].discard(vertex[0])
+
+    return graph
+
+def add_vertex(graph, vertex):
+    """ Add a vertex from the graph """
+
+    graph[vertex[0]].add(vertex[1])
+    graph[vertex[1]].add(vertex[0])
+
+    return graph
 
 
 ## part 1
@@ -90,22 +115,47 @@ result = 0
 
 n_graphs = 0
 
-while n_graphs != 2:
+# generate a list with all the connections, assuming bi-directionality
+vertices = []
 
-    graph_iter = copy.deepcopy(graph) # very inneficient but let's see how fast this goes
-    nodes = list(graph_iter.keys())
-    
-    for node1 in nodes:
-        for node2 in nodes[1:]:
-            for node3 in nodes[1:]:
-                print(f"{node1}, {node2}, {node3}")
+for node in graph.keys():
+    connections = graph[node]
+
+    for connection in connections:
+        if (node, connection) not in vertices and (connection, node) not in vertices:
+            vertices.append((node, connection))
+
+# print(vertices, len(vertices))
+
+
+for idx1, vertex1 in enumerate(vertices):
+    print(idx1, end=", ")
+    for vertex2 in vertices[idx1+1:]:
+        print((time.time() - start_time))
+        for vertex3 in vertices[idx1+2:]:
+            # print(vertex1, vertex2, vertex3)
+
+            graph = cut_vertex(graph, vertex1)
+            graph = cut_vertex(graph, vertex2)
+            graph = cut_vertex(graph, vertex3)
+
+            n_graphs, subgraph_node_counts = count_graphs(graph) 
+            if n_graphs == 2:
+                print(vertex1, vertex2, vertex3, subgraph_node_counts)
+
+                result = subgraph_node_counts[0] * subgraph_node_counts[1]
+
+                print("--- %s seconds ---" % (time.time() - start_time))
+                print("Result part 1: ", result)
+                exit()
+
+            graph = add_vertex(graph, vertex1)
+            graph = add_vertex(graph, vertex2)
+            graph = add_vertex(graph, vertex3)
 
 
 
-
-print("--- %s seconds ---" % (time.time() - start_time))
-print("Result part 1: ", result)
-
+# 1492 is too low
 
 ## part 2
 
