@@ -127,12 +127,20 @@ for node in graph.keys():
 
 # print(vertices, len(vertices))
 
+# print(count_graphs(graph))
+# print("--- %s seconds ---" % (time.time() - start_time))
+# 0.29 - 0.30 secs per graph
 
 for idx1, vertex1 in enumerate(vertices):
+    delta2 = idx1+1
     print(idx1, end=", ")
-    for vertex2 in vertices[idx1+1:]:
+    for vertex2 in vertices[idx1+delta2:]:
+        delta2 += 1
         print((time.time() - start_time))
-        for vertex3 in vertices[idx1+2:]:
+        delta3 = delta2
+
+        for vertex3 in vertices[idx1+delta3:]:
+            delta3 = delta2+1
             # print(vertex1, vertex2, vertex3)
 
             graph = cut_vertex(graph, vertex1)
