@@ -70,6 +70,28 @@ for node in graph.keys():
 G = nx.Graph()
 G.add_edges_from(edges)
 
+cut_edges = nx.minimum_edge_cut(G)
+
+for cut_edge in cut_edges:
+    G.remove_edge(cut_edge[0], cut_edge[1])
+
+cc = nx.connected_components(G)
+cc = list(cc).copy()
+
+print(f"Graph component 1 size = {len(cc[0])}, Graph component 1 size = {len(cc[1])}")
+result = len(cc[0]) * len(cc[1])
+
+print("Result part 1: ", result) #
+print("--- %s seconds ---" % (time.time() - start_time))
+
+exit()
+
+# the following code was from a previous solution where I found the nodes to cut from visual inspection
+# the previous solution uses https://en.wikipedia.org/wiki/Minimum_cut and 
+# https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.connectivity.cuts.minimum_edge_cut.html
+
+print(".------.")
+
 print(f"Node count={G.size()}")
 
 options = {
